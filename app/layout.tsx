@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Harsh Upadhyay - Portfolio",
   description: "Full Stack Developer | Tech Enthusiast",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
+  ],
 };
 
 export default function RootLayout({
