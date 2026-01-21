@@ -16,18 +16,18 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-20 text-center px-4"
+        transition={{ duration: 0.6 }}
+        className="relative z-20 text-center px-4 sm:px-6"
       >
         {/* Profile Photo */}
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-          className="mb-8"
+          transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 15 }}
+          className="mb-6 sm:mb-8"
         >
-          <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-yellow-500 to-orange-600 p-1">
-            <div className="w-full h-full rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-6xl">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full bg-gradient-to-r from-yellow-500 to-orange-600 p-1">
+            <div className="w-full h-full rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-5xl sm:text-6xl">
               👨‍💻
             </div>
           </div>
@@ -37,8 +37,8 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-4"
+          transition={{ delay: 0.3 }}
+          className="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4"
         >
           Harsh Upadhyay
         </motion.h1>
@@ -46,8 +46,8 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="text-xl md:text-3xl text-blue-600 dark:text-blue-400 mb-6"
+          transition={{ delay: 0.4 }}
+          className="text-lg sm:text-xl md:text-3xl text-blue-600 dark:text-blue-400 mb-4 sm:mb-6"
         >
           Full Stack Developer | Tech Enthusiast
         </motion.div>
@@ -55,8 +55,8 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto"
+          transition={{ delay: 0.5 }}
+          className="text-base sm:text-lg text-slate-600 dark:text-slate-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-4"
         >
           Passionate about creating beautiful and functional web experiences
         </motion.p>
@@ -64,18 +64,18 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          className="flex gap-4 justify-center flex-wrap"
+          transition={{ delay: 0.6 }}
+          className="flex gap-3 sm:gap-4 justify-center flex-wrap px-4"
         >
           <button
             onClick={scrollToAbout}
-            className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all hover:scale-105"
+            className="px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all hover:scale-105 active:scale-95"
           >
             View My Work
           </button>
           <a
             href="#contact"
-            className="px-8 py-3 border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white rounded-lg font-semibold hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 transition-all hover:scale-105"
+            className="px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white rounded-lg font-semibold hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900 transition-all hover:scale-105 active:scale-95"
           >
             Get In Touch
           </a>
@@ -86,11 +86,12 @@ export default function Hero() {
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 1 }}
         onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-slate-900 dark:text-white animate-bounce"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-slate-900 dark:text-white animate-bounce"
+        aria-label="Scroll to about section"
       >
-        <ArrowDown className="w-6 h-6" />
+        <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6" />
       </motion.button>
     </section>
   );
