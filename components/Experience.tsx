@@ -54,39 +54,39 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="min-h-screen bg-white dark:bg-slate-900 py-20 px-4 transition-colors">
+    <section id="experience" className="min-h-screen bg-white dark:bg-slate-900 py-12 sm:py-20 px-4 sm:px-6 lg:px-8 transition-colors">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4 text-center">
             Work Experience
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-center mb-12">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 text-center mb-8 sm:mb-12 px-4">
             My professional journey and accomplishments
           </p>
 
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: index * 0.2, duration: 0.6 }}
-                className="bg-gray-100 dark:bg-slate-800 rounded-lg p-6 md:p-8 border border-slate-300 dark:border-slate-700 hover:border-blue-500 transition-all"
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="bg-gray-100 dark:bg-slate-800 rounded-lg p-4 sm:p-6 md:p-8 border border-slate-300 dark:border-slate-700 hover:border-blue-500 transition-all"
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                  <div className="flex items-start gap-4 mb-4 md:mb-0">
-                    <div className="bg-blue-600 rounded-lg p-3">
-                      <Briefcase className="w-6 h-6 text-white" />
+                  <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4 md:mb-0">
+                    <div className="bg-blue-600 rounded-lg p-2 sm:p-3">
+                      <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">{exp.title}</h3>
-                      <p className="text-xl text-blue-600 dark:text-blue-400 mb-2">{exp.company}</p>
-                      <p className="text-slate-600 dark:text-slate-400">{exp.description}</p>
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-1">{exp.title}</h3>
+                      <p className="text-base sm:text-lg md:text-xl text-blue-600 dark:text-blue-400 mb-2">{exp.company}</p>
+                      <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">{exp.description}</p>
                     </div>
                   </div>
                   <div className="flex flex-col items-start md:items-end gap-2">

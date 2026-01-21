@@ -11,6 +11,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Optimize font loading */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
 /* Light mode support */
 html.light {
   color-scheme: light;

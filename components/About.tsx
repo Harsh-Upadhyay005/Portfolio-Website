@@ -111,43 +111,11 @@ export default function About() {
                       </div>
                     </div>
                   </div>
-                </div>
-
-                {/* Floating Tech Icons */}
-                <motion.div
-                  animate={{ 
-                    y: [0, -15, 0],
-                    rotate: [0, 5, 0]
-                  }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-8 -right-8 bg-gradient-to-br from-teal-400 to-cyan-500 p-4 rounded-2xl shadow-2xl border-4 border-white dark:border-slate-800"
-                >
-                  <Rocket className="w-8 h-8 text-white" />
-                </motion.div>
-                
-                <motion.div
-                  animate={{ 
-                    y: [0, 15, 0],
-                    rotate: [0, -5, 0]
-                  }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  className="absolute bottom-16 -left-8 bg-gradient-to-br from-orange-400 to-red-500 p-4 rounded-xl shadow-2xl border-4 border-white dark:border-slate-800"
-                >
-                  <Code2 className="w-7 h-7 text-white" />
-                </motion.div>
-
-                <motion.div
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 180, 360]
-                  }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-1/3 -left-6 bg-gradient-to-br from-purple-400 to-pink-500 p-3 rounded-full shadow-xl border-4 border-white dark:border-slate-800"
-                >
-                  <Heart className="w-5 h-5 text-white" />
-                </motion.div>
+                </div>  
               </div>
             </motion.div>
+            
+                
 
             {/* Text Content */}
             <motion.div
@@ -225,6 +193,7 @@ export default function About() {
             </motion.div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );
