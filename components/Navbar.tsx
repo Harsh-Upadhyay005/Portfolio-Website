@@ -45,26 +45,26 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
           ? "bg-slate-900/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg" 
-          : "bg-transparent"
+          : "bg-slate-900/80 dark:bg-slate-900/80 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-2xl font-bold text-white dark:text-white hover:text-blue-400 transition-colors"
+            className="text-xl sm:text-2xl font-bold text-white dark:text-white hover:text-blue-400 transition-colors"
           >
             Portfolio
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-gray-300 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
+                className="text-sm lg:text-base text-gray-300 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
               >
                 {link.name}
               </button>
