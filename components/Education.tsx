@@ -1,12 +1,13 @@
 "use client";
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
-import { useRef } from "react";
-import { GraduationCap, Award, BookOpen, Trophy, Star, Sparkles } from "lucide-react";
+import { useRef, useState } from "react";
+import { GraduationCap, Award, BookOpen, Trophy, Star, Sparkles, ExternalLink, X } from "lucide-react";
 
 export default function Education() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
 
   const education = [
     {
@@ -21,10 +22,30 @@ export default function Education() {
   ];
 
   const certifications = [
-    { name: "Coursera Python for Data Science", provider: "Coursera", icon: "🐍" },
-    { name: "Google Cloud Professional", provider: "Google", icon: "☁️" },
-    { name: "Meta Front-End Developer", provider: "Meta", icon: "⚛️" },
-    { name: "Microsoft Azure Fundamentals", provider: "Microsoft", icon: "💠" },
+    { 
+      name: "Coursera Python for Data Science", 
+      provider: "Coursera", 
+      icon: "🐍",
+      certUrl: "/certificates/python-cert.pdf" // Replace with your actual certificate URL
+    },
+    { 
+      name: "Google Cloud Professional", 
+      provider: "Google", 
+      icon: "☁️",
+      certUrl: "/certificates/google-cloud-cert.pdf"
+    },
+    { 
+      name: "Meta Front-End Developer", 
+      provider: "Meta", 
+      icon: "⚛️",
+      certUrl: "/certificates/meta-cert.pdf"
+    },
+    { 
+      name: "Microsoft Azure Fundamentals", 
+      provider: "Microsoft", 
+      icon: "💠",
+      certUrl: "/certificates/azure-cert.pdf"
+    },
   ];
 
   return (
@@ -157,7 +178,8 @@ export default function Education() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-                  className="group relative"
+                  className="group relative cursor-pointer"
+                  onClick={() => setSelectedCert(cert.certUrl)}
                 >
                   {/* Hover Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity"></div>
@@ -172,6 +194,10 @@ export default function Education() {
                         <p className="text-sm text-slate-600 dark:text-slate-400">
                           Issued by <span className="font-semibold text-teal-600 dark:text-teal-400">{cert.provider}</span>
                         </p>
+                        <p className="text-xs text-teal-600 dark:text-teal-400 mt-2 flex items-center gap-1">
+                          <ExternalLink className="w-3 h-3" />
+                          Click to view certificate
+                        </p>
                       </div>
                       <Sparkles className="w-5 h-5 text-teal-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
@@ -179,6 +205,55 @@ export default function Education() {
                 </motion.div>
               ))}
             </div>
+
+            {/* Certificate Modal */}
+            {selectedCert && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                onClick={() => setSelectedCert(null)}
+              >
+                <motion.div
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.9, opacity: 0 }}
+                  className="relative max-w-5xl w-full bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setSelectedCert(null)}
+                    className="absolute top-4 right-4 z-10 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full transition-colors"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+
+                  {/* Certificate Viewer */}
+                  <div className="relative w-full h-[80vh] overflow-auto">
+                    <iframe
+                      src={selectedCert}
+                      className="w-full h-full"
+                      title="Certificate Viewer"
+                    />
+                  </div>
+
+                  {/* Download Button */}
+                  <div className="absolute bottom-4 right-4 flex gap-2">
+                    <a
+                      href={selectedCert}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-teal-500 hover:bg-teal-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center gap-2 transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                      Open in New Tab
+                    </a>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
           </motion.div>
         </motion.div>
       </div>
