@@ -63,7 +63,7 @@ export default function About() {
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 rounded-[3rem] bg-gradient-to-r from-purple-500 via-orange-500 via-teal-500 to-purple-500 p-1 opacity-75"
+                  className="absolute inset-0 rounded-[3rem] bg-gradient-to-r from-orange-500 via-purple-500 via-teal-500 to-pink-500 p-1 opacity-75"
                 >
                   <div className="w-full h-full bg-transparent rounded-[3rem]"></div>
                 </motion.div>
