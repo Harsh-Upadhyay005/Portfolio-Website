@@ -26,9 +26,11 @@ export default function Hero() {
           transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 15 }}
           className="mb-6 sm:mb-8"
         >
-          <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full bg-gradient-to-r from-yellow-500 to-orange-600 p-1">
-            <div className="w-full h-full rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-5xl sm:text-6xl">
-              👨‍💻
+          <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full bg-gradient-to-br from-blue-600 to-purple-600 p-0.5 shadow-lg">
+            <div className="w-full h-full rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                HU
+              </div>
             </div>
           </div>
         </motion.div>
@@ -38,7 +40,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 dark:text-white mb-3 sm:mb-4"
+          className="text-3xl sm:text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-2 sm:mb-3"
         >
           Harsh Upadhyay
         </motion.h1>
@@ -47,7 +49,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="text-lg sm:text-xl md:text-3xl text-blue-600 dark:text-blue-400 mb-4 sm:mb-6"
+          className="text-base sm:text-lg md:text-xl text-blue-600 dark:text-blue-400 mb-3 sm:mb-4 font-medium"
         >
           Full Stack Developer | Tech Enthusiast
         </motion.div>
@@ -56,7 +58,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="text-base sm:text-lg text-slate-600 dark:text-slate-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-4"
+          className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 sm:mb-8 max-w-xl mx-auto px-4"
         >
           Passionate about creating beautiful and functional web experiences
         </motion.p>
