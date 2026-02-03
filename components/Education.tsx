@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { GraduationCap, Award, BookOpen, Trophy, Star, Sparkles, ExternalLink, X } from "lucide-react";
+import { GraduationCap, Award, BookOpen, Star, Sparkles, ExternalLink, X, Calendar, MapPin } from "lucide-react";
 
 export default function Education() {
   const ref = useRef(null);
@@ -14,38 +14,49 @@ export default function Education() {
       degree: "Bachelor of Computer Science and Engineering in Data Science",
       institution: "Raj Kumar Goel Institute of Technology",
       period: "2024 - 2028",
+      year: "2024",
       description: "Specialized in Data Science and Web Development",
-      achievements: ["GPA: 7.5/10.0", "Dean's List", "Best Project Award"],
+      achievements: ["Best Project Award"],
       icon: GraduationCap,
       color: "from-purple-500 to-pink-500",
+      status: "Currently Pursuing"
     },
   ];
 
   const certifications = [
     { 
-      name: "Coursera Python for Data Science", 
+      name: "Coursera Certificate", 
       provider: "Coursera", 
-      icon: "🐍",
-      certUrl: "/certificates/python-cert.pdf" // Replace with your actual certificate URL
+      icon: "🎓",
+      certUrl: "/certificates/Coursera 1NCRBJK437M7 Certificate.pdf"
+    },
+    
+    { 
+      name: "DSA Certificate", 
+      provider: "Apna College", 
+      icon: "🎓", // You can use any emoji
+      certUrl: "/certificates/DSA Certificate-sigma-50-672b17223c33c36b830d9022.pdf"
     },
     { 
-      name: "Google Cloud Professional", 
-      provider: "Google", 
-      icon: "☁️",
-      certUrl: "/certificates/google-cloud-cert.pdf"
+      name: "Web Development Certificate", 
+      provider: "Apna College", 
+      icon: "🎓", // You can use any emoji
+      certUrl: "/certificates/Comming soon"
     },
     { 
-      name: "Meta Front-End Developer", 
-      provider: "Meta", 
-      icon: "⚛️",
-      certUrl: "/certificates/meta-cert.pdf"
+      name: "Python Certificate", 
+      provider: "Udemy", 
+      icon: "🎓", // You can use any emoji
+      certUrl: "/certificates/Comming soon"
     },
-    { 
-      name: "Microsoft Azure Fundamentals", 
-      provider: "Microsoft", 
-      icon: "💠",
-      certUrl: "/certificates/azure-cert.pdf"
-    },
+
+    // Add more certificates below by copying the format above:
+    // { 
+    //   name: "Certificate Name", 
+    //   provider: "Provider Name", 
+    //   icon: "🏆", // You can use any emoji
+    //   certUrl: "/certificates/your-certificate-file.pdf"
+    // },
   ];
 
   return (
@@ -81,76 +92,153 @@ export default function Education() {
             </p>
           </div>
 
-          {/* Education Cards */}
-          <div className="mb-12 sm:mb-16">
+          {/* Education Timeline */}
+          <div className="mb-12 sm:mb-16 relative">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-orange-500 to-teal-500 transform md:-translate-x-1/2">
+              {/* Animated Pulse */}
+              <motion.div
+                animate={{ 
+                  y: [0, 1000],
+                  opacity: [0, 1, 1, 0]
+                }}
+                transition={{ 
+                  duration: 3, 
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="absolute top-0 left-1/2 w-1 h-20 bg-gradient-to-b from-transparent via-white to-transparent -translate-x-1/2"
+              />
+            </div>
+
             {education.map((edu, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="relative"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: 0.3 + index * 0.2, duration: 0.6 }}
+                className={`relative flex items-center mb-12 md:mb-20 ${
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                }`}
               >
-                {/* Decorative Corner Elements */}
-                <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 dark:from-purple-600 dark:to-pink-600 rounded-2xl opacity-20 blur-xl"></div>
-                <div className="absolute -bottom-4 -right-4 w-28 h-28 bg-gradient-to-br from-orange-400 to-red-400 dark:from-orange-600 dark:to-red-600 rounded-2xl opacity-20 blur-xl"></div>
-                
-                <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg rounded-3xl p-6 sm:p-8 border border-purple-200 dark:border-purple-900 shadow-2xl">
-                  {/* Top Gradient Line */}
-                  <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-500 via-orange-500 to-teal-500 rounded-t-3xl"></div>
-                  
-                  <div className="flex flex-col lg:flex-row gap-6 items-start">
-                    {/* Icon Section */}
-                    <div className="relative">
-                      <motion.div
-                        animate={{ rotate: [0, 5, -5, 0] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        className={`bg-gradient-to-br ${edu.color} p-6 rounded-2xl shadow-xl`}
-                      >
-                        <edu.icon className="w-12 h-12 text-white" />
-                      </motion.div>
-                      <div className="absolute -bottom-2 -right-2 bg-gradient-to-br from-teal-500 to-cyan-500 p-2 rounded-lg">
-                        <Star className="w-4 h-4 text-white" />
-                      </div>
+                {/* Timeline Node */}
+                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 z-20">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ delay: 0.5 + index * 0.2, type: "spring", stiffness: 200 }}
+                    className="relative"
+                  >
+                    {/* Pulsing Ring */}
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.5, 1],
+                        opacity: [0.5, 0, 0.5]
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="absolute inset-0 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"
+                    />
+                    
+                    {/* Icon Container */}
+                    <div className={`relative bg-gradient-to-br ${edu.color} p-4 rounded-full shadow-2xl border-4 border-white dark:border-slate-900`}>
+                      <edu.icon className="w-6 h-6 text-white" />
                     </div>
+                    
+                    {/* Floating Badge */}
+                    <motion.div
+                      animate={{ 
+                        y: [-2, 2, -2],
+                        rotate: [0, 5, -5, 0]
+                      }}
+                      transition={{ 
+                        duration: 3, 
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="absolute -top-2 -right-2 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full p-1.5 border-2 border-white dark:border-slate-900 shadow-lg"
+                    >
+                      <Star className="w-3 h-3 text-white" />
+                    </motion.div>
+                  </motion.div>
+                </div>
 
-                    {/* Content */}
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <span className="bg-gradient-to-r from-purple-500 to-orange-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold">
+                {/* Content Card */}
+                <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
+                  index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
+                }`}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.6 + index * 0.2, duration: 0.5 }}
+                    className="relative group"
+                  >
+                    {/* Glow Effect */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-orange-600 to-teal-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                    
+                    {/* Card */}
+                    <div className="relative bg-white/90 dark:bg-slate-800/90 backdrop-blur-lg rounded-3xl p-6 border border-purple-200 dark:border-purple-900 shadow-xl group-hover:shadow-2xl transition-all duration-300">
+                      {/* Top Accent Bar */}
+                      <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${edu.color} rounded-t-3xl`}></div>
+                      
+                      {/* Year Badge */}
+                      <div className="flex items-center gap-2 mb-4">
+                        <motion.div
+                          animate={{ rotate: [0, 360] }}
+                          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                          className={`bg-gradient-to-r ${edu.color} p-2 rounded-lg`}
+                        >
+                          <Calendar className="w-4 h-4 text-white" />
+                        </motion.div>
+                        <span className="bg-gradient-to-r from-purple-500 to-orange-500 text-white px-4 py-1.5 rounded-full text-sm font-bold">
                           {edu.period}
                         </span>
-                        <span className="text-slate-500 dark:text-slate-400 text-sm">📍 Current</span>
+                        <span className="bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 px-3 py-1 rounded-full text-xs font-semibold">
+                          {edu.status}
+                        </span>
                       </div>
                       
-                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                      {/* Degree Title */}
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-orange-600 transition-all">
                         {edu.degree}
                       </h3>
                       
-                      <div className="flex items-center gap-2 mb-3">
-                        <Trophy className="w-5 h-5 text-orange-500" />
-                        <p className="text-base sm:text-lg font-semibold text-slate-700 dark:text-slate-300">
+                      {/* Institution */}
+                      <div className="flex items-start gap-2 mb-3">
+                        <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                        <p className="text-base font-semibold text-slate-700 dark:text-slate-300">
                           {edu.institution}
                         </p>
                       </div>
                       
-                      <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-4">
+                      {/* Description */}
+                      <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
                         {edu.description}
                       </p>
                       
-                      {/* Achievements */}
+                      {/* Achievements with Animation */}
                       <div className="flex flex-wrap gap-2">
                         {edu.achievements.map((achievement, i) => (
-                          <span
+                          <motion.span
                             key={i}
-                            className="bg-gradient-to-r from-purple-100 to-orange-100 dark:from-purple-900/30 dark:to-orange-900/30 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-xl text-sm font-medium border border-purple-200 dark:border-purple-800"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                            transition={{ delay: 0.8 + index * 0.2 + i * 0.1 }}
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            className="bg-gradient-to-r from-purple-100 to-orange-100 dark:from-purple-900/40 dark:to-orange-900/40 text-purple-700 dark:text-purple-300 px-3 py-1.5 rounded-lg text-xs font-medium border border-purple-200 dark:border-purple-800 cursor-default"
                           >
                             ✨ {achievement}
-                          </span>
+                          </motion.span>
                         ))}
                       </div>
+                      
+                      {/* Corner Decoration */}
+                      <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br from-orange-400 to-red-400 dark:from-orange-600 dark:to-red-600 rounded-2xl opacity-10 blur-xl group-hover:opacity-20 transition-opacity"></div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
