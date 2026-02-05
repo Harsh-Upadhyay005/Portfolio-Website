@@ -129,7 +129,7 @@ export default function Skills() {
           </div>
 
           {/* Quick Stats */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.5 }}
@@ -151,7 +151,7 @@ export default function Skills() {
               <div className="text-2xl sm:text-3xl font-bold mb-1">4</div>
               <div className="text-xs sm:text-sm opacity-90">Categories</div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>

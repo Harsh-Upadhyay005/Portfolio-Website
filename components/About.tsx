@@ -161,7 +161,7 @@ export default function About() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+              {/* <div className="grid grid-cols-3 gap-3 sm:gap-4">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -189,7 +189,7 @@ export default function About() {
                   <div className="text-2xl sm:text-3xl font-bold mb-1">18+</div>
                   <div className="text-xs sm:text-sm opacity-90">Tech Stack</div>
                 </motion.div>
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </motion.div>
