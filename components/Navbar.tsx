@@ -7,13 +7,28 @@ import { useTheme } from "./ThemeProvider";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      // Detect active section
+      const sections = ["about", "skills", "education", "resume", "projects", "contact"];
+      let current = "";
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120) {
+            current = id;
+          }
+        }
+      }
+      setActiveSection(current);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -44,8 +59,8 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-slate-900/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg" 
-          : "bg-slate-900/80 dark:bg-slate-900/80 backdrop-blur-sm"
+          ? "bg-slate-900/95 backdrop-blur-md shadow-lg shadow-black/10" 
+          : "bg-slate-900/80 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,29 +72,14 @@ export default function Navbar() {
           >
             <motion.div
               className="relative"
-              animate={{
-                y: [0, -3, 0],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              {/* Glow effect behind logo */}
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 rounded-lg blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"
-                animate={{
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
-              
-              {/* Logo with clean animations */}
               <motion.img
                 src="/logo.png"
                 alt="RH Logo"
@@ -89,65 +89,102 @@ export default function Navbar() {
                   filter: "brightness(1.3) drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))",
                   transition: { duration: 0.3 }
                 }}
-                style={{
-                  filter: "drop-shadow(0 4px 12px rgba(59, 130, 246, 0.3))"
-                }}
+                style={{ filter: "drop-shadow(0 4px 12px rgba(59, 130, 246, 0.3))" }}
               />
             </motion.div>
-            <span className="text-xl sm:text-2xl font-bold text-white dark:text-white group-hover:text-blue-400 transition-colors duration-300">
+            <span className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
               Portfolio
             </span>
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className="text-sm lg:text-base text-gray-300 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
-              >
-                {link.name}
-              </button>
-            ))}
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className={`relative text-sm lg:text-base px-3 py-2 rounded-lg transition-colors ${
+                    isActive 
+                      ? "text-white" 
+                      : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavBg"
+                      className="absolute inset-0 bg-white/10 rounded-lg"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative">{link.name}</span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavUnderline"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
 
           {/* Social Links & Theme Toggle */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3">
             {socialLinks.map((social) => (
-              <a
+              <motion.a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white transition-colors"
+                whileHover={{ scale: 1.15, y: -1 }}
+                className="text-gray-500 hover:text-white transition-colors"
                 aria-label={social.label}
               >
-                <social.icon className="w-5 h-5" />
-              </a>
+                <social.icon className="w-[18px] h-[18px]" />
+              </motion.a>
             ))}
             
-            {/* Theme Toggle Button */}
-            <button
+            <div className="w-px h-5 bg-slate-700 mx-1" />
+
+            <motion.button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-slate-800/50 dark:bg-slate-800/50 hover:bg-slate-700/50 dark:hover:bg-slate-700/50 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700/60 border border-slate-700/50 transition-colors"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
-                <Sun className="w-5 h-5 text-yellow-400" />
+                <Sun className="w-4 h-4 text-yellow-400" />
               ) : (
-                <Moon className="w-5 h-5 text-slate-300" />
+                <Moon className="w-4 h-4 text-slate-300" />
               )}
-            </button>
+            </motion.button>
           </div>
 
           {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white dark:text-white"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-3">
+            <motion.button
+              onClick={toggleTheme}
+              whileTap={{ scale: 0.9 }}
+              className="p-2 rounded-lg bg-slate-800/60 border border-slate-700/50"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-4 h-4 text-yellow-400" />
+              ) : (
+                <Moon className="w-4 h-4 text-slate-300" />
+              )}
+            </motion.button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white p-1"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -158,46 +195,44 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-900/95 dark:bg-slate-900/95 backdrop-blur-md"
+            className="md:hidden bg-slate-900/98 backdrop-blur-lg border-t border-slate-800/50"
           >
-            <div className="px-4 pt-2 pb-4 space-y-3">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="block w-full text-left text-gray-300 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors py-2"
-                >
-                  {link.name}
-                </button>
-              ))}
-              <div className="flex items-center justify-between pt-4 border-t border-gray-700 dark:border-gray-700">
-                <div className="flex space-x-4">
-                  {socialLinks.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 dark:text-gray-400 hover:text-white dark:hover:text-white transition-colors"
-                      aria-label={social.label}
-                    >
-                      <social.icon className="w-5 h-5" />
-                    </a>
-                  ))}
-                </div>
-                
-                {/* Mobile Theme Toggle */}
-                <button
-                  onClick={toggleTheme}
-                  className="p-2 rounded-lg bg-slate-800/50 dark:bg-slate-800/50 hover:bg-slate-700/50 dark:hover:bg-slate-700/50 transition-colors"
-                  aria-label="Toggle theme"
-                >
-                  {theme === "dark" ? (
-                    <Sun className="w-5 h-5 text-yellow-400" />
-                  ) : (
-                    <Moon className="w-5 h-5 text-slate-300" />
-                  )}
-                </button>
+            <div className="px-4 pt-3 pb-5 space-y-1">
+              {navLinks.map((link, index) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <motion.button
+                    key={link.id}
+                    onClick={() => scrollToSection(link.id)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className={`block w-full text-left px-4 py-2.5 rounded-xl transition-colors ${
+                      isActive 
+                        ? "bg-white/10 text-white font-medium" 
+                        : "text-gray-400 hover:text-white hover:bg-white/5"
+                    }`}
+                  >
+                    <span className="flex items-center gap-3">
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />}
+                      {link.name}
+                    </span>
+                  </motion.button>
+                );
+              })}
+              <div className="flex items-center gap-4 pt-4 px-4 border-t border-slate-800/50 mt-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-white transition-colors"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                ))}
               </div>
             </div>
           </motion.div>
