@@ -237,7 +237,7 @@ export default function Resume() {
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                     <p className="text-sm text-slate-600 dark:text-slate-400">
-                      Last updated: <span className="font-semibold text-slate-900 dark:text-white">January 2026</span>
+                      Last updated: <span className="font-semibold text-slate-900 dark:text-white">July 2025</span>
                     </p>
                   </div>
                   <div className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full">

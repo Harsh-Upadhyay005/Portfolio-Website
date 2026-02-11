@@ -29,31 +29,18 @@ export default function Projects() {
       image: "📹",
       screenshot: "/projects/video-conferencing.png",
       technologies: ["React", "WebRTC", "Socket.io", "Tailwind-CSS"],
-      github: "https://github.com/yourusername/project1",
-      live: "https://project1.demo.com",
+      github: "https://github.com/Harsh-Upadhyay005/WebMeet",
+      live: "https://web-meet-liart.vercel.app/",
       gradient: "from-purple-600 to-pink-600",
       bgGradient: "from-purple-500/10 to-pink-500/10",
       featured: true,
       category: "Web Apps" as ProjectCategory,
       size: "large",
+      comingSoon: false,
     },
-    // {
-    //   title: "Task Management App",
-    //   description: "Collaborative project management tool with real-time updates and team features.",
-    //   image: "📋",
-    //   screenshot: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80",
-    //   technologies: ["React", "Firebase", "Material-UI"],
-    //   github: "https://github.com/yourusername/project2",
-    //   live: "https://project2.demo.com",
-    //   gradient: "from-orange-600 to-yellow-600",
-    //   bgGradient: "from-orange-500/10 to-yellow-500/10",
-    //   featured: false,
-    //   category: "Tools" as ProjectCategory,
-    //   size: "medium",
-    // },
     {
       title: "Weather Dashboard",
-      description: "Real-time weather application with 3-day forecasts, aqi, and location-based alerts.",
+      description: "Real-time weather application with 3-day forecasts, AQI monitoring, and location-based alerts.",
       image: "🌤️",
       screenshot: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80",
       technologies: ["JavaScript", "OpenWeather API", "Chart.js"],
@@ -64,22 +51,8 @@ export default function Projects() {
       featured: false,
       category: "Web Apps" as ProjectCategory,
       size: "medium",
+      comingSoon: false,
     },
-    // {
-    //   title: "Portfolio Generator",
-    //   description: "SaaS tool for developers to create and customize their portfolio websites.",
-    //   image: "🎨",
-    //   screenshot: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-    //   technologies: ["React", "Node.js", "MongoDB"],
-    //   github: "https://github.com/yourusername/project4",
-    //   live: "https://project4.demo.com",
-    //   gradient: "from-violet-600 to-fuchsia-600",
-    //   bgGradient: "from-violet-500/10 to-fuchsia-500/10",
-    //   featured: false,
-    //   category: "Tools" as ProjectCategory,
-    //   size: "medium",
-    // },
-    
     {
       title: "Simon Says Game",
       description: "An interactive memory game where players repeat increasingly complex sequences.",
@@ -93,20 +66,22 @@ export default function Projects() {
       featured: false,
       category: "Games" as ProjectCategory,
       size: "medium",
+      comingSoon: false,
     },
     {
-      title: "More Projects Coming Soon......",
-      // description: "Analytics dashboard aggregating data from multiple social media platforms.",
-      // image: "📊",
+      title: "More Projects Coming Soon",
+      description: "Exciting new projects are in the pipeline — stay tuned for updates!",
+      image: "🚀",
       screenshot: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      technologies: ["Next.js", "D3.js", "Express"],
-      github: "https://github.com/yourusername/project5",
-      live: "https://project5.demo.com",
+      technologies: ["React", "Next.js", "Node.js"],
+      github: "https://github.com/Harsh-Upadhyay005",
+      live: "https://github.com/Harsh-Upadhyay005",
       gradient: "from-emerald-600 to-lime-600",
       bgGradient: "from-emerald-500/10 to-lime-500/10",
       featured: false,
-      category: "Analytics" as ProjectCategory,
+      category: "Web Apps" as ProjectCategory,
       size: "medium",
+      comingSoon: true,
     },
   ];
 
@@ -318,7 +293,7 @@ export default function Projects() {
                         <div className="flex-1 flex items-center gap-2 bg-white/60 dark:bg-slate-900/60 rounded-lg px-3 py-1.5 max-w-xs">
                           <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${project.gradient}`} />
                           <span className="text-xs text-slate-500 dark:text-slate-400 truncate font-mono">
-                            {project.live.replace('https://web-meet-liart.vercel.app/', '')}
+                            {project.live.replace(/^https?:\/\//, '')}
                           </span>
                         </div>
 
@@ -360,6 +335,7 @@ export default function Projects() {
                         />
                         
                         {/* Quick Action Buttons on Hover */}
+                        {!project.comingSoon && (
                         <motion.div 
                           className="absolute inset-0 pt-12 flex items-center justify-center gap-4"
                           initial={{ opacity: 0, y: 20 }}
@@ -367,7 +343,7 @@ export default function Projects() {
                           transition={{ duration: 0.3 }}
                         >
                           <motion.a
-                            href={"https://web-meet-liart.vercel.app/"}
+                            href={project.live}
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.1 }}
@@ -379,7 +355,7 @@ export default function Projects() {
                             <span>Live Demo</span>
                           </motion.a>
                           <motion.a
-                            href={"https://github.com/Harsh-Upadhyay005/WebMeet"}
+                            href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.1 }}
@@ -390,6 +366,25 @@ export default function Projects() {
                             <Github className="w-5 h-5 text-slate-900 dark:text-white" />
                           </motion.a>
                         </motion.div>
+                        )}
+
+                        {/* Coming Soon Overlay */}
+                        {project.comingSoon && (
+                        <motion.div 
+                          className="absolute inset-0 pt-12 flex items-center justify-center"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                        >
+                          <div className="bg-black/40 backdrop-blur-sm absolute inset-0 pt-12" />
+                          <motion.div 
+                            className="relative bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-xl z-10"
+                            animate={{ y: [0, -5, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          >
+                            <span className="text-lg font-bold bg-gradient-to-r from-emerald-600 to-lime-600 bg-clip-text text-transparent">🚀 Coming Soon</span>
+                          </motion.div>
+                        </motion.div>
+                        )}
 
                         {/* Category Tag */}
                         <motion.div 
