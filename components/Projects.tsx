@@ -37,20 +37,20 @@ export default function Projects() {
       category: "Web Apps" as ProjectCategory,
       size: "large",
     },
-    {
-      title: "Task Management App",
-      description: "Collaborative project management tool with real-time updates and team features.",
-      image: "📋",
-      screenshot: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80",
-      technologies: ["React", "Firebase", "Material-UI"],
-      github: "https://github.com/yourusername/project2",
-      live: "https://project2.demo.com",
-      gradient: "from-orange-600 to-yellow-600",
-      bgGradient: "from-orange-500/10 to-yellow-500/10",
-      featured: false,
-      category: "Tools" as ProjectCategory,
-      size: "medium",
-    },
+    // {
+    //   title: "Task Management App",
+    //   description: "Collaborative project management tool with real-time updates and team features.",
+    //   image: "📋",
+    //   screenshot: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80",
+    //   technologies: ["React", "Firebase", "Material-UI"],
+    //   github: "https://github.com/yourusername/project2",
+    //   live: "https://project2.demo.com",
+    //   gradient: "from-orange-600 to-yellow-600",
+    //   bgGradient: "from-orange-500/10 to-yellow-500/10",
+    //   featured: false,
+    //   category: "Tools" as ProjectCategory,
+    //   size: "medium",
+    // },
     {
       title: "Weather Dashboard",
       description: "Real-time weather application with 3-day forecasts, aqi, and location-based alerts.",
@@ -65,34 +65,21 @@ export default function Projects() {
       category: "Web Apps" as ProjectCategory,
       size: "medium",
     },
-    {
-      title: "Portfolio Generator",
-      description: "SaaS tool for developers to create and customize their portfolio websites.",
-      image: "🎨",
-      screenshot: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-      technologies: ["React", "Node.js", "MongoDB"],
-      github: "https://github.com/yourusername/project4",
-      live: "https://project4.demo.com",
-      gradient: "from-violet-600 to-fuchsia-600",
-      bgGradient: "from-violet-500/10 to-fuchsia-500/10",
-      featured: false,
-      category: "Tools" as ProjectCategory,
-      size: "medium",
-    },
-    {
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard aggregating data from multiple social media platforms.",
-      image: "📊",
-      screenshot: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      technologies: ["Next.js", "D3.js", "Express"],
-      github: "https://github.com/yourusername/project5",
-      live: "https://project5.demo.com",
-      gradient: "from-emerald-600 to-lime-600",
-      bgGradient: "from-emerald-500/10 to-lime-500/10",
-      featured: false,
-      category: "Analytics" as ProjectCategory,
-      size: "medium",
-    },
+    // {
+    //   title: "Portfolio Generator",
+    //   description: "SaaS tool for developers to create and customize their portfolio websites.",
+    //   image: "🎨",
+    //   screenshot: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    //   technologies: ["React", "Node.js", "MongoDB"],
+    //   github: "https://github.com/yourusername/project4",
+    //   live: "https://project4.demo.com",
+    //   gradient: "from-violet-600 to-fuchsia-600",
+    //   bgGradient: "from-violet-500/10 to-fuchsia-500/10",
+    //   featured: false,
+    //   category: "Tools" as ProjectCategory,
+    //   size: "medium",
+    // },
+    
     {
       title: "Simon Says Game",
       description: "An interactive memory game where players repeat increasingly complex sequences.",
@@ -105,6 +92,20 @@ export default function Projects() {
       bgGradient: "from-rose-500/10 to-orange-500/10",
       featured: false,
       category: "Games" as ProjectCategory,
+      size: "medium",
+    },
+    {
+      title: "More Projects Coming Soon......",
+      // description: "Analytics dashboard aggregating data from multiple social media platforms.",
+      // image: "📊",
+      screenshot: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      technologies: ["Next.js", "D3.js", "Express"],
+      github: "https://github.com/yourusername/project5",
+      live: "https://project5.demo.com",
+      gradient: "from-emerald-600 to-lime-600",
+      bgGradient: "from-emerald-500/10 to-lime-500/10",
+      featured: false,
+      category: "Analytics" as ProjectCategory,
       size: "medium",
     },
   ];
@@ -317,7 +318,7 @@ export default function Projects() {
                         <div className="flex-1 flex items-center gap-2 bg-white/60 dark:bg-slate-900/60 rounded-lg px-3 py-1.5 max-w-xs">
                           <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${project.gradient}`} />
                           <span className="text-xs text-slate-500 dark:text-slate-400 truncate font-mono">
-                            {project.live.replace('https://', '')}
+                            {project.live.replace('https://web-meet-liart.vercel.app/', '')}
                           </span>
                         </div>
 
@@ -366,7 +367,7 @@ export default function Projects() {
                           transition={{ duration: 0.3 }}
                         >
                           <motion.a
-                            href={project.live}
+                            href={"https://web-meet-liart.vercel.app/"}
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.1 }}
@@ -378,7 +379,7 @@ export default function Projects() {
                             <span>Live Demo</span>
                           </motion.a>
                           <motion.a
-                            href={project.github}
+                            href={"https://github.com/Harsh-Upadhyay005/WebMeet"}
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.1 }}

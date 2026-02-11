@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { GraduationCap, Award, BookOpen, Star, Sparkles, ExternalLink, X, Calendar, MapPin } from "lucide-react";
+import { GraduationCap, Award, BookOpen, Sparkles, ExternalLink, X, Calendar, MapPin } from "lucide-react";
 
 export default function Education() {
   const ref = useRef(null);
@@ -11,10 +11,10 @@ export default function Education() {
 
   const education = [
     {
-      degree: "Bachelor of Computer Science and Engineering in Data Science",
       institution: "Raj Kumar Goel Institute of Technology",
+      degree: "Bachelor of Computer Science and Engineering in Data Science",
       period: "2024 - 2028",
-      year: "2024",
+      year: "2025",
       description: "Specialized in Data Science and Web Development",
       achievements: ["Best Project Award"],
       icon: GraduationCap,
@@ -130,7 +130,7 @@ export default function Education() {
                     className="relative"
                   >
                     {/* Pulsing Ring */}
-                    <motion.div
+                    {/* <motion.div
                       animate={{ 
                         scale: [1, 1.5, 1],
                         opacity: [0.5, 0, 0.5]
@@ -144,12 +144,12 @@ export default function Education() {
                     />
                     
                     {/* Icon Container */}
-                    <div className={`relative bg-gradient-to-br ${edu.color} p-4 rounded-full shadow-2xl border-4 border-white dark:border-slate-900`}>
+                    {/* <div className={`relative bg-gradient-to-br ${edu.color} p-4 rounded-full shadow-2xl border-4 border-white dark:border-slate-900`}>
                       <edu.icon className="w-6 h-6 text-white" />
-                    </div>
+                    </div> */}
                     
                     {/* Floating Badge */}
-                    <motion.div
+                    {/* <motion.div
                       animate={{ 
                         y: [-2, 2, -2],
                         rotate: [0, 5, -5, 0]
@@ -162,7 +162,7 @@ export default function Education() {
                       className="absolute -top-2 -right-2 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full p-1.5 border-2 border-white dark:border-slate-900 shadow-lg"
                     >
                       <Star className="w-3 h-3 text-white" />
-                    </motion.div>
+                    </motion.div> */}
                   </motion.div>
                 </div>
 
@@ -201,17 +201,19 @@ export default function Education() {
                         </span>
                       </div>
                       
-                      {/* Degree Title */}
+                      {/* Institute */}
                       <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-orange-600 transition-all">
-                        {edu.degree}
+                        <div className="flex items-start gap-2 mb-3">
+                        <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                        <p className="text-base font-semibold dark:text-slate-100">
+                          {edu.institution}</p>
+                        </div>
                       </h3>
                       
-                      {/* Institution */}
+                      {/* Degree Title */}
                       <div className="flex items-start gap-2 mb-3">
-                        <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                        <p className="text-base font-semibold text-slate-700 dark:text-slate-300">
-                          {edu.institution}
-                        </p>
+                          {edu.degree}
+                        
                       </div>
                       
                       {/* Description */}
@@ -226,7 +228,8 @@ export default function Education() {
                             key={i}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                            transition={{ delay: 0.8 + index * 0.2 + i * 0.1 }}
+                            tran
+                        sition={{ delay: 0.8 + index * 0.2 + i * 0.1 }}
                             whileHover={{ scale: 1.05, y: -2 }}
                             className="bg-gradient-to-r from-purple-100 to-orange-100 dark:from-purple-900/40 dark:to-orange-900/40 text-purple-700 dark:text-purple-300 px-3 py-1.5 rounded-lg text-xs font-medium border border-purple-200 dark:border-purple-800 cursor-default"
                           >

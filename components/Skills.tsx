@@ -29,8 +29,8 @@ export default function Skills() {
         { name: "Node.js", level: "Advanced" },
         { name: "Express.js", level: "Advanced" },
         { name: "MongoDB", level: "Advanced" },
-        { name: "Python", level: "Advanced" },
-        { name: "Java", level: "Intermediate" },
+        { name: "Python", level: "Intermediate" },
+        { name: "Java", level: "Beginner" },
       ]
     },
     {
@@ -39,7 +39,7 @@ export default function Skills() {
       color: "from-purple-500 to-pink-500",
       skills: [
         { name: "Git & GitHub", level: "Advanced" },
-        { name: "Docker", level: "Intermediate" },
+        { name: "Docker", level: "Beginner" },
         { name: "VS Code", level: "Expert" },
         { name: "Postman", level: "Advanced" },
       ]
