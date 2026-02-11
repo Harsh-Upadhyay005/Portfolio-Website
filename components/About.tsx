@@ -161,35 +161,9 @@ export default function About() {
               </div>
 
               {/* Stats */}
-              {/* <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.7, duration: 0.4 }}
-                  className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl p-4 text-center text-white shadow-lg"
-                >
-                  <div className="text-2xl sm:text-3xl font-bold mb-1">5+</div>
-                  <div className="text-xs sm:text-sm opacity-90">Projects</div>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.8, duration: 0.4 }}
-                  className="bg-gradient-to-br from-orange-500 to-red-500 rounded-xl p-4 text-center text-white shadow-lg"
-                >
-                  <div className="text-2xl sm:text-3xl font-bold mb-1">1+</div>
-                  <div className="text-xs sm:text-sm opacity-90">Years Exp</div>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.9, duration: 0.4 }}
-                  className="bg-gradient-to-br from-teal-500 to-cyan-500 rounded-xl p-4 text-center text-white shadow-lg"
-                >
-                  <div className="text-2xl sm:text-3xl font-bold mb-1">18+</div>
-                  <div className="text-xs sm:text-sm opacity-90">Tech Stack</div>
-                </motion.div>
-              </div> */}
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                
+              </div>
             </motion.div>
           </div>
         </motion.div>
