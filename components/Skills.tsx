@@ -2,7 +2,28 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
-import { Code2, Database, Cloud, Wrench, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { GradientShimmerText } from "./ui/shimmer-text";
+import {
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPython,
+  SiGit,
+  SiGithub,
+  SiDocker,
+  SiPostman,
+  SiVercel,
+  SiFigma,
+  SiAdobephotoshop
+} from "react-icons/si";
+import { FaJava, FaAws } from "react-icons/fa";
+import { VscCode } from "react-icons/vsc";
 
 export default function Skills() {
   const ref = useRef(null);
@@ -11,64 +32,47 @@ export default function Skills() {
   const skillCategories = [
     {
       category: "Frontend Development",
-      icon: Code2,
-      color: "from-blue-500 to-cyan-500",
       skills: [
-        { name: "JavaScript", level: "Expert" },
-        { name: "React", level: "Intermediate" },
-        { name: "Next.js", level: "Intermediate" },
-        { name: "TypeScript", level: "Advanced" },
-        { name: "Tailwind CSS", level: "Expert" },
+        { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+        { name: "React", icon: SiReact, color: "#61DAFB" },
+        { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
       ]
     },
     {
       category: "Backend Development",
-      icon: Database,
-      color: "from-green-500 to-emerald-500",
       skills: [
-        { name: "Node.js", level: "Advanced" },
-        { name: "Express.js", level: "Advanced" },
-        { name: "MongoDB", level: "Advanced" },
-        { name: "Python", level: "Intermediate" },
-        { name: "Java", level: "Beginner" },
+        { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+        { name: "Express.js", icon: SiExpress, color: "#000000" },
+        { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+        { name: "Python", icon: SiPython, color: "#3776AB" },
+        { name: "Java", icon: FaJava, color: "#007396" },
       ]
     },
     {
       category: "Tools & DevOps",
-      icon: Wrench,
-      color: "from-purple-500 to-pink-500",
       skills: [
-        { name: "Git & GitHub", level: "Advanced" },
-        { name: "Docker", level: "Beginner" },
-        { name: "VS Code", level: "Expert" },
-        { name: "Postman", level: "Advanced" },
+        { name: "Git", icon: SiGit, color: "#F05032" },
+        { name: "GitHub", icon: SiGithub, color: "#181717" },
+        { name: "Docker", icon: SiDocker, color: "#2496ED" },
+        { name: "VS Code", icon: VscCode, color: "#007ACC" },
+        { name: "Postman", icon: SiPostman, color: "#FF6C37" },
       ]
     },
     {
       category: "Cloud & Design",
-      icon: Cloud,
-      color: "from-orange-500 to-red-500",
       skills: [
-        { name: "AWS", level: "Intermediate" },
-        { name: "Vercel", level: "Advanced" },
-        { name: "Figma", level: "Intermediate" },
-        { name: "Photoshop", level: "Intermediate" },
+        { name: "AWS", icon: FaAws, color: "#FF9900" },
+        { name: "Vercel", icon: SiVercel, color: "#000000" },
+        { name: "Figma", icon: SiFigma, color: "#F24E1E" },
+        { name: "Photoshop", icon: SiAdobephotoshop, color: "#31A8FF" },
       ]
     }
   ];
 
-  const getLevelBadge = (level: string) => {
-    const badges: Record<string, string> = {
-      "Expert": "bg-green-500/20 text-green-700 dark:text-green-300 border-green-500/50",
-      "Advanced": "bg-blue-500/20 text-blue-700 dark:text-blue-300 border-blue-500/50",
-      "Intermediate": "bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 border-yellow-500/50",
-      "Beginner": "bg-red-500/20 text-red-700 dark:text-red-300 border-red-500/50"
-    };
-    return badges[level] || badges.Intermediate;
-  };
-
   return (
-    <section id="skills" className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
+    <section id="skills" className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-20 right-10 w-80 h-80 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl" />
@@ -89,19 +93,36 @@ export default function Skills() {
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="inline-block mb-4"
             >
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-2xl">
+              <div className="bg-linear-to-r from-blue-600 to-purple-600 p-3 rounded-2xl">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
             </motion.div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 sm:mb-4">
-              Skills & Expertise
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 sm:mb-4">
+              {"Skills & Expertise".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ 
+                    delay: 0.3 + index * 0.03,
+                    duration: 0.3
+                  }}
+                  className="inline-block"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Technologies and tools I work with to bring ideas to life
+              Technologies and tools I work with to bring{" "}
+              <GradientShimmerText gradientFrom="#3b82f6" gradientTo="#a855f7" speed={3}>
+                ideas to life
+              </GradientShimmerText>
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
+          {/* Skills Grid */}
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             {skillCategories.map((category, catIndex) => (
               <motion.div
                 key={category.category}
@@ -110,38 +131,63 @@ export default function Skills() {
                 transition={{ delay: catIndex * 0.15, duration: 0.5 }}
                 className="group relative"
               >
-                {/* Card glow */}
-                <div className={`absolute -inset-0.5 bg-gradient-to-r ${category.color} rounded-2xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
-                
-                <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 transition-all hover:shadow-xl">
+                <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 transition-all hover:shadow-2xl">
                   {/* Category Header */}
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className={`bg-gradient-to-br ${category.color} p-2.5 rounded-xl shadow-lg`}>
-                      <category.icon className="w-5 h-5 text-white" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-                      {category.category}
-                    </h3>
-                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6">
+                    {category.category}
+                  </h3>
 
-                  {/* Skills List */}
-                  <div className="flex flex-wrap gap-2">
+                  {/* Skills Grid */}
+                  <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 sm:gap-5">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
                         key={skill.name}
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        initial={{ opacity: 0, scale: 0.5 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ delay: catIndex * 0.15 + skillIndex * 0.05, duration: 0.4 }}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        className="group relative"
+                        transition={{ 
+                          delay: catIndex * 0.15 + skillIndex * 0.08, 
+                          duration: 0.4,
+                          type: "spring",
+                          stiffness: 200
+                        }}
+                        whileHover={{ 
+                          scale: 1.15,
+                          y: -8,
+                          transition: { type: "spring", stiffness: 400, damping: 10 }
+                        }}
+                        className="group/item relative flex flex-col items-center justify-center"
                       >
-                        <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-700/50 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-600 hover:border-blue-400 dark:hover:border-blue-500 transition-all">
-                          <span className="font-medium text-slate-900 dark:text-white text-sm">
-                            {skill.name}
-                          </span>
-                          <span className={`px-2 py-0.5 rounded-md text-xs font-medium border ${getLevelBadge(skill.level)}`}>
-                            {skill.level}
-                          </span>
+                        {/* Icon Container */}
+                        <div className="relative">
+                          <div 
+                            className="absolute inset-0 rounded-2xl opacity-0 group-hover/item:opacity-100 blur-xl transition-opacity duration-300"
+                            style={{ backgroundColor: `${skill.color}40` }}
+                          />
+                          <div 
+                            className="relative bg-white dark:bg-slate-700 p-4 sm:p-5 rounded-2xl shadow-lg border-2 border-slate-200 dark:border-slate-600 group-hover/item:border-transparent transition-all"
+                            style={{
+                              boxShadow: `0 4px 20px ${skill.color}20`
+                            }}
+                          >
+                            <skill.icon 
+                              className="w-8 h-8 sm:w-10 sm:h-10 transition-transform duration-300"
+                              style={{ 
+                                color: skill.color,
+                                filter: 'brightness(1.1)'
+                              }}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Skill Name */}
+                        <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mt-3 text-center leading-tight">
+                          {skill.name}
+                        </span>
+
+                        {/* Hover Tooltip */}
+                        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-slate-900 dark:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap opacity-0 group-hover/item:opacity-100 pointer-events-none transition-opacity duration-200 shadow-xl">
+                          {skill.name}
+                          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-slate-900 dark:bg-slate-700 rotate-45" />
                         </div>
                       </motion.div>
                     ))}
@@ -150,33 +196,6 @@ export default function Skills() {
               </motion.div>
             ))}
           </div>
-
-          {/* Quick Stats */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="mt-10 sm:mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
-          >
-            {[
-              { value: "20+", label: "Technologies", color: "from-blue-500 to-blue-600" },
-              { value: "5+", label: "Projects", color: "from-green-500 to-green-600" },
-              { value: "1+", label: "Years Learning", color: "from-purple-500 to-purple-600" },
-              { value: "4", label: "Categories", color: "from-orange-500 to-orange-600" },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.7 + i * 0.1 }}
-                whileHover={{ scale: 1.05, y: -3 }}
-                className={`bg-gradient-to-br ${stat.color} rounded-xl p-4 sm:p-5 text-center text-white shadow-lg cursor-default`}
-              >
-                <div className="text-2xl sm:text-3xl font-bold mb-1">{stat.value}</div>
-                <div className="text-xs sm:text-sm opacity-90">{stat.label}</div>
-              </motion.div> */}
-            {/* ))}
-          </motion.div> */}
         </motion.div>
       </div>
     </section>
