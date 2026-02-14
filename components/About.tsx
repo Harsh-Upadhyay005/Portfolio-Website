@@ -4,6 +4,7 @@ import { useInView } from "motion/react";
 import { useRef } from "react";
 import Image from "next/image";
 import { Code2, Rocket, Heart, Sparkles, Award, Target } from "lucide-react";
+import { GradientShimmerText } from "./ui/shimmer-text";
 
 export default function About() {
   const ref = useRef(null);
@@ -17,7 +18,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="min-h-screen bg-gradient-to-br from-purple-50 via-orange-50 to-teal-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-12 sm:py-20 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
+    <section id="about" className="min-h-screen bg-linear-to-br from-purple-50 via-orange-50 to-teal-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-12 sm:py-20 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300/30 dark:bg-purple-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-300/30 dark:bg-orange-500/10 rounded-full blur-3xl"></div>
@@ -38,16 +39,50 @@ export default function About() {
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="inline-block mb-4"
             >
-              <div className="bg-gradient-to-r from-purple-600 to-orange-600 p-3 rounded-2xl">
+              <div className="bg-linear-to-r from-purple-600 to-orange-600 p-3 rounded-2xl">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
             </motion.div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 via-orange-600 to-teal-600 bg-clip-text text-transparent mb-3 sm:mb-4">
-              About Me
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-linear-to-r from-purple-600 via-orange-600 to-teal-600 bg-clip-text text-transparent mb-3 sm:mb-4">
+              {"About Me".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 20, rotateX: 90 }}
+                  animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+                  transition={{ 
+                    delay: 0.3 + index * 0.05,
+                    duration: 0.4,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  className="inline-block"
+                  style={{ transformOrigin: "bottom" }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Crafting digital experiences with passion and precision
-            </p>
+            <motion.p 
+              className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.7 }}
+            >
+              {["Crafting", "digital", "experiences", "with", "passion", "and", "precision"].map((word, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{
+                    delay: 0.8 + index * 0.1,
+                    duration: 0.3
+                  }}
+                  className="inline-block mr-[0.3em]"
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.p>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
@@ -132,8 +167,8 @@ export default function About() {
                 <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                   I&apos;m a passionate <span className="font-semibold text-purple-600 dark:text-purple-400">Full Stack Developer</span> with 
                   a keen eye for design and a love for creating exceptional digital experiences. I transform ideas into 
-                  reality through <span className="font-semibold text-orange-600 dark:text-orange-400">clean code</span> and 
-                  <span className="font-semibold text-teal-600 dark:text-teal-400"> intuitive interfaces</span>.
+                  reality through <GradientShimmerText gradientFrom="#ea580c" gradientTo="#f97316" speed={2.5} className="font-semibold">clean code</GradientShimmerText> and{" "}
+                  <GradientShimmerText gradientFrom="#0d9488" gradientTo="#14b8a6" speed={2.5} className="font-semibold">intuitive interfaces</GradientShimmerText>.
                 </p>
                 <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                   Currently pursuing my <span className="font-semibold">Bachelor&apos;s in Computer Science and Engineering 

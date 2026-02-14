@@ -3,46 +3,9 @@ import { Boxes } from "@/components/ui/background-boxes";
 import { motion } from "motion/react";
 import { ArrowDown, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-
-const roles = [
-  "Full Stack Developer",
-  "Tech Enthusiast",
-  "Data Science Student",
-  "UI/UX Explorer",
-];
+import { TypeAnimation } from "react-type-animation";
 
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const currentRole = roles[roleIndex];
-    let timeout: NodeJS.Timeout;
-
-    if (!isDeleting && displayText === currentRole) {
-      timeout = setTimeout(() => setIsDeleting(true), 2000);
-    } else if (isDeleting && displayText === "") {
-      timeout = setTimeout(() => {
-        setIsDeleting(false);
-        setRoleIndex((prev) => (prev + 1) % roles.length);
-      }, 50);
-    } else {
-      timeout = setTimeout(
-        () => {
-          setDisplayText(
-            isDeleting
-              ? currentRole.substring(0, displayText.length - 1)
-              : currentRole.substring(0, displayText.length + 1)
-          );
-        },
-        isDeleting ? 40 : 80
-      );
-    }
-
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, roleIndex]);
 
   const scrollToAbout = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
@@ -77,7 +40,7 @@ export default function Hero() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"
+              className="absolute -inset-1 rounded-full bg-linear-to-r from-blue-600 via-purple-600 to-pink-600"
             />
             <div className="absolute inset-0 rounded-full bg-white dark:bg-slate-900 m-[3px]" />
             <Image
@@ -104,39 +67,82 @@ export default function Hero() {
           <span className="text-lg">👋</span> Hey there, welcome!
         </motion.div>
 
-        {/* Name */}
+        {/* Name with character reveal */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-3 sm:mb-4"
         >
-          <span className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent">
-            Harsh Upadhyay
+          <span className="bg-linear-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent">
+            {"Harsh Upadhyay".split("").map((char, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  delay: 0.3 + index * 0.05,
+                  duration: 0.3
+                }}
+                className="inline-block"
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
           </span>
         </motion.h1>
 
-        {/* Typing Role */}
+        {/* Enhanced Typing Role with TypeAnimation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-5 font-medium h-8 sm:h-9"
         >
-          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            {displayText}
-          </span>
-          <span className="animate-pulse text-blue-600 dark:text-blue-400 ml-0.5">|</span>
+          <TypeAnimation
+            sequence={[
+              'Full Stack Developer',
+              2000,
+              'Tech Enthusiast',
+              2000,
+              'Data Science Student',
+              2000,
+              'UI/UX Explorer',
+              2000,
+            ]}
+            wrapper="span"
+            speed={50}
+            className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+            repeat={Infinity}
+            cursor={true}
+            style={{ display: 'inline-block' }}
+          />
         </motion.div>
 
+        {/* Description with word-by-word reveal */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
           className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto px-4 leading-relaxed"
         >
-          Passionate about creating beautiful, performant web experiences.
-          I turn ideas into elegant, responsive applications.
+          {[
+            "Passionate", "about", "creating", "beautiful,", "performant", "web", "experiences.",
+            "I", "turn", "ideas", "into", "elegant,", "responsive", "applications."
+          ].map((word, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, filter: "blur(4px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              transition={{
+                delay: 0.8 + index * 0.08,
+                duration: 0.4
+              }}
+              className="inline-block mr-[0.3em]"
+            >
+              {word}
+            </motion.span>
+          ))}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -148,7 +154,7 @@ export default function Hero() {
         >
           <button
             onClick={scrollToAbout}
-            className="group px-7 sm:px-8 py-3 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all hover:scale-105 active:scale-95"
+            className="group px-7 sm:px-8 py-3 text-sm sm:text-base bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all hover:scale-105 active:scale-95"
           >
             View My Work
             <ArrowDown className="inline-block w-4 h-4 ml-2 group-hover:translate-y-0.5 transition-transform" />
