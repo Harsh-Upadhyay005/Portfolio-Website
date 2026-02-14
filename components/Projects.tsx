@@ -157,17 +157,65 @@ export default function Projects() {
           </motion.div>
           
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
-            <span className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 dark:from-white dark:via-purple-200 dark:to-white bg-clip-text text-transparent">
-              Crafted with
+            <span className="bg-linear-to-r from-slate-900 via-purple-900 to-slate-900 dark:from-white dark:via-purple-200 dark:to-white bg-clip-text text-transparent">
+              {"Crafted with".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ 
+                    delay: 0.3 + index * 0.03,
+                    duration: 0.3,
+                    type: "spring",
+                    stiffness: 120
+                  }}
+                  className="inline-block"
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
             </span>
             <br />
-            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent">
-              Passion & Code
+            <span className="bg-linear-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent">
+              {"Passion & Code".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, rotateY: 90 }}
+                  animate={isInView ? { opacity: 1, rotateY: 0 } : {}}
+                  transition={{ 
+                    delay: 0.7 + index * 0.04,
+                    duration: 0.4,
+                    type: "spring"
+                  }}
+                  className="inline-block"
+                  style={{ transformOrigin: "center" }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            Interactive showcases of my work — hover, click, and explore each project
-          </p>
+          <motion.p 
+            className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 1.2 }}
+          >
+            {["Interactive", "showcases", "of", "my", "work", "—", "hover,", "click,", "and", "explore", "each", "project"].map((word, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  delay: 1.3 + index * 0.05,
+                  duration: 0.3
+                }}
+                className="inline-block mr-[0.3em]"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.p>
         </motion.div>
 
         {/* Category Filter Pills */}
