@@ -33,32 +33,32 @@ export default function Resume() {
       title: "Fresher",
       value: "0 Years",
       description: "Real-world projects",
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "from-blue-500/10 to-cyan-500/10"
+      color: "from-yellow-500 to-zinc-500",
+      bgColor: "from-yellow-500/10 to-zinc-500/10"
     },
     {
       icon: Code,
       title: "Projects",
       value: "5+",
       description: "Completed works",
-      color: "from-indigo-500 to-purple-500",
-      bgColor: "from-indigo-500/10 to-purple-500/10"
+      color: "from-orange-500 to-orange-500",
+      bgColor: "from-orange-500/10 to-orange-500/10"
     },
     {
       icon: Award,
       title: "Skills",
       value: "20+",
       description: "Technologies mastered",
-      color: "from-purple-500 to-pink-500",
-      bgColor: "from-purple-500/10 to-pink-500/10"
+      color: "from-orange-500 to-amber-500",
+      bgColor: "from-orange-500/10 to-amber-500/10"
     },
     {
       icon: GraduationCap,
       title: "Education",
       value: "B.Tech",
       description: "Computer Science",
-      color: "from-pink-500 to-rose-500",
-      bgColor: "from-pink-500/10 to-rose-500/10"
+      color: "from-amber-500 to-orange-500",
+      bgColor: "from-amber-500/10 to-orange-500/10"
     }
   ];
 
@@ -66,7 +66,7 @@ export default function Resume() {
     <section
       id="resume"
       ref={ref}
-      className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden"
+      className="min-h-screen bg-gradient-to-br from-zinc-50 via-yellow-50 to-orange-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden"
     >
       {/* Animated Background Grid */}
       <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]">
@@ -84,7 +84,7 @@ export default function Resume() {
           y: [0, -30, 0]
         }}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl"
+        className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-yellow-400/20 to-zinc-400/20 rounded-full blur-3xl"
       />
       <motion.div 
         animate={{ 
@@ -93,7 +93,7 @@ export default function Resume() {
           y: [0, 50, 0]
         }}
         transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-indigo-400/20 to-purple-400/20 rounded-full blur-3xl"
+        className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-orange-400/20 to-orange-400/20 rounded-full blur-3xl"
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -108,22 +108,22 @@ export default function Resume() {
               initial={{ scale: 0, rotate: -180 }}
               animate={isInView ? { scale: 1, rotate: 0 } : {}}
               transition={{ delay: 0.2, type: "spring", stiffness: 150 }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600/10 to-indigo-600/10 dark:from-blue-400/10 dark:to-indigo-400/10 px-4 py-2 rounded-full mb-6 border border-blue-200 dark:border-blue-800"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-600/10 to-orange-600/10 dark:from-yellow-400/10 dark:to-orange-400/10 px-4 py-2 rounded-full mb-6 border border-yellow-200 dark:border-yellow-800"
             >
-              <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              <span className="text-sm font-medium text-blue-700 dark:text-blue-300">Professional Resume</span>
+              <Sparkles className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
+              <span className="text-sm font-medium text-yellow-700 dark:text-yellow-300">Professional Resume</span>
             </motion.div>
 
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">
-              <span className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-zinc-900 via-yellow-900 to-zinc-900 dark:from-white dark:via-yellow-200 dark:to-white bg-clip-text text-transparent">
                 Download My
               </span>
               <br />
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-yellow-600 via-orange-600 to-orange-600 bg-clip-text text-transparent">
                 Complete Resume
               </span>
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
               Get a comprehensive overview of my skills, experience, and achievements
             </p>
           </div>
@@ -138,14 +138,14 @@ export default function Resume() {
             className="relative mb-12"
           >
             <motion.div
-              className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl blur-xl opacity-0"
+              className="absolute -inset-1 bg-gradient-to-r from-yellow-600 via-orange-600 to-orange-600 rounded-3xl blur-xl opacity-0"
               animate={{ opacity: isHovered ? 0.3 : 0 }}
               transition={{ duration: 0.5 }}
             />
 
-            <div className="relative bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200/50 dark:border-slate-800/50 shadow-2xl">
+            <div className="relative bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-200/50 dark:border-zinc-800/50 shadow-2xl">
               {/* Header Section with Gradient */}
-              <div className="relative bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-8 sm:p-12">
+              <div className="relative bg-gradient-to-r from-yellow-600 via-orange-600 to-orange-600 p-8 sm:p-12">
                 <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px]" />
                 
                 <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
@@ -162,7 +162,7 @@ export default function Resume() {
                       <h3 className="text-2xl sm:text-3xl font-bold mb-2">
                         Harsh Upadhyay
                       </h3>
-                      <p className="text-blue-100 text-sm sm:text-base">
+                      <p className="text-yellow-100 text-sm sm:text-base">
                         Full Stack Developer & Data Science Enthusiast
                       </p>
                     </div>
@@ -185,7 +185,7 @@ export default function Resume() {
                       onClick={handleDownload}
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className="group bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                      className="group bg-white text-yellow-600 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
                     >
                       <Download className="w-5 h-5 group-hover:animate-bounce" />
                       <span>Download PDF</span>
@@ -209,7 +209,7 @@ export default function Resume() {
                         className="relative group"
                       >
                         <div className={`absolute inset-0 bg-gradient-to-br ${item.bgColor} rounded-2xl opacity-50 group-hover:opacity-100 transition-opacity`} />
-                        <div className="relative bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 text-center hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
+                        <div className="relative bg-white dark:bg-zinc-800 rounded-2xl p-5 border border-zinc-200 dark:border-zinc-700 text-center hover:border-yellow-300 dark:hover:border-yellow-700 transition-colors">
                           <motion.div
                             whileHover={{ rotate: 360, scale: 1.2 }}
                             transition={{ duration: 0.5 }}
@@ -220,10 +220,10 @@ export default function Resume() {
                           <div className={`text-2xl font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent mb-1`}>
                             {item.value}
                           </div>
-                          <div className="text-xs font-semibold text-slate-900 dark:text-white mb-1">
+                          <div className="text-xs font-semibold text-zinc-900 dark:text-white mb-1">
                             {item.title}
                           </div>
-                          <div className="text-xs text-slate-500 dark:text-slate-400">
+                          <div className="text-xs text-zinc-500 dark:text-zinc-400">
                             {item.description}
                           </div>
                         </div>
@@ -233,16 +233,16 @@ export default function Resume() {
                 </div>
 
                 {/* Bottom Info */}
-                <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <p className="text-sm text-slate-600 dark:text-slate-400">
-                      Last updated: <span className="font-semibold text-slate-900 dark:text-white">July 2025</span>
+                    <div className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse" />
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                      Last updated: <span className="font-semibold text-zinc-900 dark:text-white">July 2025</span>
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full">
-                    <FileText className="w-4 h-4 text-slate-600 dark:text-slate-400" />
-                    <span className="text-xs font-medium text-slate-600 dark:text-slate-400">PDF Format • 2 Pages</span>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-800 rounded-full">
+                    <FileText className="w-4 h-4 text-zinc-600 dark:text-zinc-400" />
+                    <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">PDF Format • 2 Pages</span>
                   </div>
                 </div>
               </div>
@@ -256,11 +256,11 @@ export default function Resume() {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="text-center"
           >
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 px-6 py-3 rounded-full border border-blue-200 dark:border-blue-800"
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-950/30 dark:to-orange-950/30 px-6 py-3 rounded-full border border-yellow-200 dark:border-yellow-800"
             >
-              <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              <span className="text-sm text-slate-600 dark:text-slate-400">
-                Looking for collaboration? <a href="#contact" className="font-semibold text-blue-600 dark:text-blue-400 hover:underline ml-1">Let&apos;s connect</a>
+              <Sparkles className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
+              <span className="text-sm text-zinc-600 dark:text-zinc-400">
+                Looking for collaboration? <a href="#contact" className="font-semibold text-yellow-600 dark:text-yellow-400 hover:underline ml-1">Let&apos;s connect</a>
               </span>
             </div>
           </motion.div>
