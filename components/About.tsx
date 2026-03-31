@@ -12,11 +12,11 @@ export default function About() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section id="about" className="bg-linear-to-br from-purple-50 via-orange-50 to-teal-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-6 sm:py-10 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
+    <section id="about" className="bg-linear-to-br from-orange-50 via-orange-50 to-zinc-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 py-6 sm:py-10 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300/30 dark:bg-purple-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-10 w-72 h-72 bg-orange-300/30 dark:bg-orange-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-300/30 dark:bg-orange-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-teal-300/20 dark:bg-teal-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-zinc-300/20 dark:bg-zinc-500/5 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -33,11 +33,11 @@ export default function About() {
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="inline-block mb-4"
             >
-              <div className="bg-linear-to-r from-purple-600 to-orange-600 p-3 rounded-2xl">
+              <div className="bg-linear-to-r from-orange-600 to-orange-600 p-3 rounded-2xl">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
             </motion.div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-linear-to-r from-purple-600 via-orange-600 to-teal-600 bg-clip-text text-transparent mb-3 sm:mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-linear-to-r from-orange-600 via-orange-600 to-zinc-600 bg-clip-text text-transparent mb-3 sm:mb-4">
               {"About Me".split("").map((char, index) => (
                 <motion.span
                   key={index}
@@ -57,7 +57,7 @@ export default function About() {
               ))}
             </h2>
             <motion.p 
-              className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
+              className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.7 }}
@@ -91,8 +91,8 @@ export default function About() {
                 images={[
                   "/profile.png", 
                   "/profile1.png", 
-                  "/video-conferencing.png",
-                  "/college-building.jpg"
+                  "/Mirror.jpeg",
+                  "/frontface.png",
                 ]} 
               />
             </motion.div>
@@ -105,17 +105,17 @@ export default function About() {
               className="w-full space-y-4 text-left order-1 lg:order-2"
             >
               {/* Introduction */}
-              <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl p-5 sm:p-6 border border-purple-200 dark:border-purple-900 shadow-xl">
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3 flex justify-start items-center gap-3">
+              <div className="bg-white/10 dark:bg-zinc-900/30 backdrop-blur-2xl rounded-3xl p-5 sm:p-6 border border-white/20 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
+                <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-3 flex justify-start items-center gap-3">
                   <span className="text-3xl hover:rotate-12 transition-transform cursor-default"></span> Hello There!
                 </h3>
-                <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
-                  I&apos;m a passionate <span className="font-semibold text-purple-600 dark:text-purple-400">Full Stack Developer</span> with 
+                <p className="text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed mb-3">
+                  I&apos;m a passionate <span className="font-semibold text-orange-600 dark:text-orange-400">Full Stack Developer</span> with 
                   a keen eye for design and a love for creating exceptional digital experiences. I transform ideas into 
                   reality through <GradientShimmerText gradientFrom="#ea580c" gradientTo="#f97316" speed={2.5} className="font-semibold">clean code</GradientShimmerText> and{" "}
                   <GradientShimmerText gradientFrom="#0d9488" gradientTo="#14b8a6" speed={2.5} className="font-semibold">intuitive interfaces</GradientShimmerText>.
                 </p>
-                <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
                   Currently pursuing my <span className="font-semibold">Bachelor&apos;s in Computer Science and Engineering 
                   in Data Science</span>, I specialize in building responsive, user-friendly applications that deliver 
                   outstanding performance and delightful user experiences.
