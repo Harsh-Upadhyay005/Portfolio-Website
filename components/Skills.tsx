@@ -72,11 +72,11 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
+    <section id="skills" className="min-h-screen bg-linear-to-br from-yellow-50 via-orange-50 to-orange-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute top-20 right-10 w-80 h-80 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-indigo-300/15 dark:bg-indigo-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-20 right-10 w-80 h-80 bg-yellow-300/20 dark:bg-yellow-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-orange-300/20 dark:bg-orange-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-orange-300/15 dark:bg-orange-500/5 rounded-full blur-3xl" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
@@ -93,11 +93,11 @@ export default function Skills() {
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="inline-block mb-4"
             >
-              <div className="bg-linear-to-r from-blue-600 to-purple-600 p-3 rounded-2xl">
+              <div className="bg-linear-to-r from-yellow-600 to-orange-600 p-3 rounded-2xl">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
             </motion.div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3 sm:mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-linear-to-r from-yellow-600 via-orange-600 to-orange-600 bg-clip-text text-transparent mb-3 sm:mb-4">
               {"Skills & Expertise".split("").map((char, index) => (
                 <motion.span
                   key={index}
@@ -113,7 +113,7 @@ export default function Skills() {
                 </motion.span>
               ))}
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
               Technologies and tools I work with to bring{" "}
               <GradientShimmerText gradientFrom="#3b82f6" gradientTo="#a855f7" speed={3}>
                 ideas to life
@@ -131,9 +131,9 @@ export default function Skills() {
                 transition={{ delay: catIndex * 0.15, duration: 0.5 }}
                 className="group relative"
               >
-                <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 transition-all hover:shadow-2xl">
+                <div className="relative bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-700 hover:border-yellow-400 dark:hover:border-yellow-500 transition-all hover:shadow-2xl">
                   {/* Category Header */}
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-6">
                     {category.category}
                   </h3>
 
@@ -164,7 +164,7 @@ export default function Skills() {
                             style={{ backgroundColor: `${skill.color}40` }}
                           />
                           <div 
-                            className="relative bg-white dark:bg-slate-700 p-4 sm:p-5 rounded-2xl shadow-lg border-2 border-slate-200 dark:border-slate-600 group-hover/item:border-transparent transition-all"
+                            className="relative bg-white dark:bg-zinc-700 p-4 sm:p-5 rounded-2xl shadow-lg border-2 border-zinc-200 dark:border-zinc-600 group-hover/item:border-transparent transition-all"
                             style={{
                               boxShadow: `0 4px 20px ${skill.color}20`
                             }}
@@ -180,14 +180,14 @@ export default function Skills() {
                         </div>
 
                         {/* Skill Name */}
-                        <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 mt-3 text-center leading-tight">
+                        <span className="text-xs sm:text-sm font-medium text-zinc-700 dark:text-zinc-300 mt-3 text-center leading-tight">
                           {skill.name}
                         </span>
 
                         {/* Hover Tooltip */}
-                        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-slate-900 dark:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap opacity-0 group-hover/item:opacity-100 pointer-events-none transition-opacity duration-200 shadow-xl">
+                        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-zinc-900 dark:bg-zinc-700 text-white px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap opacity-0 group-hover/item:opacity-100 pointer-events-none transition-opacity duration-200 shadow-xl">
                           {skill.name}
-                          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-slate-900 dark:bg-slate-700 rotate-45" />
+                          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-zinc-900 dark:bg-zinc-700 rotate-45" />
                         </div>
                       </motion.div>
                     ))}
