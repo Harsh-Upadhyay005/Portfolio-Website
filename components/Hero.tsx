@@ -40,11 +40,11 @@ export default function Hero() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-1 rounded-full bg-linear-to-r from-blue-600 via-purple-600 to-pink-600"
+              className="absolute -inset-1 rounded-full bg-linear-to-r from-red-600 via-orange-600 to-pink-600"
             />
             <div className="absolute inset-0 rounded-full bg-white dark:bg-slate-900 m-[3px]" />
             <Image
-              src="/profile.png"
+              src="/frontface.png"
               alt="Harsh Upadhyay"
               fill
               className="rounded-full object-cover relative z-10 p-1"
@@ -64,7 +64,7 @@ export default function Hero() {
           transition={{ delay: 0.25 }}
           className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-blue-200 dark:border-blue-800"
         >
-          <span className="text-lg">👋</span> Hey there, welcome!
+          <span className="text-lg"></span> Hey Traveler, welcome!
         </motion.div>
 
         {/* Name with character reveal */}
@@ -74,7 +74,7 @@ export default function Hero() {
           transition={{ delay: 0.3 }}
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-3 sm:mb-4"
         >
-          <span className="bg-linear-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-slate-900 via-orange-900 to-slate-900 dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent">
             {"Harsh Upadhyay".split("").map((char, index) => (
               <motion.span
                 key={index}
@@ -112,7 +112,7 @@ export default function Hero() {
             ]}
             wrapper="span"
             speed={50}
-            className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"
+            className="bg-linear-to-r from-orange-600 via-yellow-600 to-pink-600 bg-clip-text text-transparent"
             repeat={Infinity}
             cursor={true}
             style={{ display: 'inline-block' }}
