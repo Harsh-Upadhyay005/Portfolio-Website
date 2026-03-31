@@ -76,7 +76,7 @@ export default function Navbar() {
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 rounded-lg blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"
+                className="absolute inset-0 bg-gradient-to-r from-orange-400 via-yellow-400 to-pink-400 rounded-lg blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -86,13 +86,13 @@ export default function Navbar() {
                 className="relative w-12 h-12 sm:w-14 sm:h-14 object-contain filter brightness-110 contrast-110"
                 whileHover={{ 
                   scale: 1.1,
-                  filter: "brightness(1.3) drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))",
+                  filter: "brightness(1.3) drop-shadow(0 0 20px rgba(251, 191, 36, 0.6))",
                   transition: { duration: 0.3 }
                 }}
-                style={{ filter: "drop-shadow(0 4px 12px rgba(59, 130, 246, 0.3))" }}
+                style={{ filter: "drop-shadow(0 4px 12px rgba(251, 191, 36, 0.3))" }}
               />
             </motion.div>
-            <span className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+            <span className="text-xl sm:text-2xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300">
               Portfolio
             </span>
           </button>
