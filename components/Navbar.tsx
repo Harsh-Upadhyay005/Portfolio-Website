@@ -59,8 +59,8 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-slate-900/95 backdrop-blur-md shadow-lg shadow-black/10" 
-          : "bg-slate-900/80 backdrop-blur-sm"
+          ? "bg-zinc-950/40 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
+          : "bg-transparent backdrop-blur-none"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,7 +76,7 @@ export default function Navbar() {
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-orange-400 via-yellow-400 to-pink-400 rounded-lg blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"
+                className="absolute inset-0 bg-gradient-to-r from-orange-400 via-yellow-400 to-amber-400 rounded-lg blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -122,7 +122,7 @@ export default function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="activeNavUnderline"
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -147,19 +147,19 @@ export default function Navbar() {
               </motion.a>
             ))}
             
-            <div className="w-px h-5 bg-slate-700 mx-1" />
+            <div className="w-px h-5 bg-zinc-700 mx-1" />
 
             <motion.button
               onClick={toggleTheme}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700/60 border border-slate-700/50 transition-colors"
+              className="p-2 rounded-xl bg-zinc-800/60 hover:bg-zinc-700/60 border border-zinc-700/50 transition-colors"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
                 <Sun className="w-4 h-4 text-yellow-400" />
               ) : (
-                <Moon className="w-4 h-4 text-slate-300" />
+                <Moon className="w-4 h-4 text-zinc-300" />
               )}
             </motion.button>
           </div>
@@ -169,13 +169,13 @@ export default function Navbar() {
             <motion.button
               onClick={toggleTheme}
               whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-lg bg-slate-800/60 border border-slate-700/50"
+              className="p-2 rounded-lg bg-zinc-800/60 border border-zinc-700/50"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
                 <Sun className="w-4 h-4 text-yellow-400" />
               ) : (
-                <Moon className="w-4 h-4 text-slate-300" />
+                <Moon className="w-4 h-4 text-zinc-300" />
               )}
             </motion.button>
             <button
@@ -195,7 +195,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-900/98 backdrop-blur-lg border-t border-slate-800/50"
+            className="md:hidden bg-zinc-900/98 backdrop-blur-lg border-t border-zinc-800/50"
           >
             <div className="px-4 pt-3 pb-5 space-y-1">
               {navLinks.map((link, index) => {
@@ -214,13 +214,13 @@ export default function Navbar() {
                     }`}
                   >
                     <span className="flex items-center gap-3">
-                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />}
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />}
                       {link.name}
                     </span>
                   </motion.button>
                 );
               })}
-              <div className="flex items-center gap-4 pt-4 px-4 border-t border-slate-800/50 mt-3">
+              <div className="flex items-center gap-4 pt-4 px-4 border-t border-zinc-800/50 mt-3">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
