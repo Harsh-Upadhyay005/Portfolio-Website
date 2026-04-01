@@ -10,7 +10,7 @@ export default function Resume() {
   const [isHovered, setIsHovered] = useState(false);
 
   // Replace this with your actual resume file path
-  const resumePath = "/resume.pdf";
+  const resumePath = "/Resume-final(2) (1).pdf";
 
   const handleDownload = () => {
     // Create a temporary anchor element to trigger download
