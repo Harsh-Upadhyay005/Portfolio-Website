@@ -14,6 +14,11 @@ export default function Signature() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
+
+    if (!supabase) {
+      alert("Guestbook is temporarily unavailable. Supabase environment variables are not configured.");
+      return;
+    }
     
     setIsSubmitting(true);
     
