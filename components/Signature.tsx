@@ -3,20 +3,37 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Send, CheckCircle2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function Signature() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
     
-    // Simulate an API call
-    setTimeout(() => {
-      setIsSubmitted(true);
-    }, 500);
+    setIsSubmitting(true);
+    
+    try {
+      const { error } = await supabase
+        .from('guestbook')
+        .insert([{ name: name.trim(), message: message.trim() }]);
+        
+      if (error) {
+        console.error('Error inserting data:', error);
+        alert(`Failed to send message: ${error.message}. Please check your browser console for more details.`);
+      } else {
+        setIsSubmitted(true);
+      }
+    } catch (err) {
+      console.error('Unexpected error:', err);
+      alert('An unexpected error occurred.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -99,9 +116,10 @@ export default function Signature() {
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-medium hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg shadow-orange-500/25 mt-2"
+                    disabled={isSubmitting}
+                    className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-medium hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg shadow-orange-500/25 mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span>Post Comment</span>
+                    <span>{isSubmitting ? 'Posting...' : 'Post Comment'}</span>
                     <Send size={18} />
                   </button>
                 </motion.form>
