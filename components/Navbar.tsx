@@ -59,7 +59,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-zinc-950/40 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]" 
+          ? "bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl border-b border-black/10 dark:border-white/10 shadow-sm" 
           : "bg-transparent backdrop-blur-none"
       }`}
     >
@@ -92,7 +92,7 @@ export default function Navbar() {
                 style={{ filter: "drop-shadow(0 4px 12px rgba(251, 191, 36, 0.3))" }}
               />
             </motion.div>
-            <span className="text-xl sm:text-2xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300">
+            <span className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
               Portfolio
             </span>
           </button>
@@ -105,16 +105,16 @@ export default function Navbar() {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className={`relative text-sm lg:text-base px-3 py-2 rounded-lg transition-colors ${
+                  className={`relative text-sm lg:text-base px-3 py-2 rounded-lg transition-colors cursor-pointer ${
                     isActive 
-                      ? "text-white" 
-                      : "text-gray-400 hover:text-white"
+                      ? "text-zinc-900 dark:text-white" 
+                      : "text-zinc-500 hover:text-zinc-900 dark:text-gray-400 dark:hover:text-white"
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeNavBg"
-                      className="absolute inset-0 bg-white/10 rounded-lg"
+                      className="absolute inset-0 bg-black/5 dark:bg-white/10 rounded-lg"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -140,26 +140,26 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.15, y: -1 }}
-                className="text-gray-500 hover:text-white transition-colors"
+                className="text-zinc-500 hover:text-zinc-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                 aria-label={social.label}
               >
                 <social.icon className="w-[18px] h-[18px]" />
               </motion.a>
             ))}
             
-            <div className="w-px h-5 bg-zinc-700 mx-1" />
+            <div className="w-px h-5 bg-zinc-300 dark:bg-zinc-700 mx-1" />
 
             <motion.button
               onClick={toggleTheme}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-xl bg-zinc-800/60 hover:bg-zinc-700/60 border border-zinc-700/50 transition-colors"
+              className="p-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 border-zinc-200 dark:bg-zinc-800/60 dark:hover:bg-zinc-700/60 border dark:border-zinc-700/50 transition-colors cursor-pointer"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
                 <Sun className="w-4 h-4 text-yellow-400" />
               ) : (
-                <Moon className="w-4 h-4 text-zinc-300" />
+                <Moon className="w-4 h-4 text-zinc-900" />
               )}
             </motion.button>
           </div>
@@ -169,18 +169,18 @@ export default function Navbar() {
             <motion.button
               onClick={toggleTheme}
               whileTap={{ scale: 0.9 }}
-              className="p-2 rounded-lg bg-zinc-800/60 border border-zinc-700/50"
+              className="p-2 rounded-lg bg-zinc-100 border-zinc-200 dark:bg-zinc-800/60 border dark:border-zinc-700/50 cursor-pointer"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
                 <Sun className="w-4 h-4 text-yellow-400" />
               ) : (
-                <Moon className="w-4 h-4 text-zinc-300" />
+                <Moon className="w-4 h-4 text-zinc-900" />
               )}
             </motion.button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white p-1"
+              className="text-zinc-900 dark:text-white p-1 cursor-pointer"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -195,7 +195,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-zinc-900/98 backdrop-blur-lg border-t border-zinc-800/50"
+            className="md:hidden bg-white/98 dark:bg-zinc-900/98 backdrop-blur-lg border-t border-black/5 dark:border-zinc-800/50"
           >
             <div className="px-4 pt-3 pb-5 space-y-1">
               {navLinks.map((link, index) => {
@@ -207,27 +207,27 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className={`block w-full text-left px-4 py-2.5 rounded-xl transition-colors ${
+                    className={`block w-full text-left px-4 py-2.5 rounded-xl transition-colors cursor-pointer ${
                       isActive 
-                        ? "bg-white/10 text-white font-medium" 
-                        : "text-gray-400 hover:text-white hover:bg-white/5"
+                        ? "bg-black/5 text-zinc-900 dark:bg-white/10 dark:text-white font-medium" 
+                        : "text-zinc-600 hover:text-zinc-900 hover:bg-black/5 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5"
                     }`}
                   >
                     <span className="flex items-center gap-3">
-                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />}
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-orange-500 dark:bg-yellow-400" />}
                       {link.name}
                     </span>
                   </motion.button>
                 );
               })}
-              <div className="flex items-center gap-4 pt-4 px-4 border-t border-zinc-800/50 mt-3">
+              <div className="flex items-center gap-4 pt-4 px-4 border-t border-black/5 dark:border-zinc-800/50 mt-3">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-white transition-colors"
+                    className="text-zinc-500 hover:text-zinc-900 dark:text-gray-500 dark:hover:text-white transition-colors"
                     aria-label={social.label}
                   >
                     <social.icon className="w-5 h-5" />

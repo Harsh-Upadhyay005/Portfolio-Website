@@ -111,7 +111,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="group relative inline-flex items-center gap-2 px-4 py-2 mb-8 sm:mb-10 rounded-full bg-white/10 dark:bg-zinc-900/30 border border-white/20 dark:border-white/10 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-white/20 dark:hover:bg-zinc-800/40 transition-colors"
+          className="group relative inline-flex items-center gap-2 px-4 py-2 mb-8 sm:mb-10 rounded-full bg-black/5 dark:bg-zinc-900/30 border border-black/10 dark:border-white/10 backdrop-blur-xl shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-black/10 dark:hover:bg-zinc-800/40 transition-colors"
         >
           
         </motion.div>
@@ -143,7 +143,7 @@ export default function Hero() {
           <motion.div 
             animate={{ y: [-5, 5, -5], rotate: [-5, 5, -5] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -bottom-2 -right-4 bg-white/10 dark:bg-zinc-900/30 backdrop-blur-xl p-2 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-white/20 dark:border-white/10 text-orange-500"
+            className="absolute -bottom-2 -right-4 bg-white/80 dark:bg-zinc-900/30 backdrop-blur-xl p-2 rounded-xl shadow-lg border border-black/10 dark:border-white/10 text-orange-500"
           >
             
           </motion.div>
@@ -203,7 +203,7 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="#contact"
-            className="px-8 py-4 bg-white/5 dark:bg-zinc-900/40 backdrop-blur-xl border border-white/20 dark:border-white/10 text-zinc-800 dark:text-zinc-200 rounded-2xl font-bold hover:border-orange-500 hover:text-orange-500 dark:hover:border-orange-500 dark:hover:text-orange-400 transition-colors shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
+            className="px-8 py-4 bg-black/5 dark:bg-zinc-900/40 backdrop-blur-xl border border-black/10 dark:border-white/10 text-zinc-800 dark:text-zinc-200 rounded-2xl font-bold hover:border-orange-500 hover:text-orange-500 dark:hover:border-orange-500 dark:hover:text-orange-400 transition-colors shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
           >
             Get In Touch
           </motion.a>
@@ -214,7 +214,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="flex items-center gap-3 p-2 bg-white/10 dark:bg-zinc-900/30 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+          className="flex items-center gap-3 p-2 bg-white/80 dark:bg-zinc-900/30 backdrop-blur-xl rounded-2xl border border-black/10 dark:border-white/10 shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
         >
           {socialLinks.map((social, index) => (
             <motion.a
