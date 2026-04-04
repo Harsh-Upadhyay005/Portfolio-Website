@@ -91,7 +91,7 @@ export default function About() {
                 images={[
                   "/profile.png", 
                   "/profile1.png", 
-                  "/Mirror.jpeg",
+                  "/BharatMandapam.jpeg",
                   "/frontface.png",
                 ]} 
               />
