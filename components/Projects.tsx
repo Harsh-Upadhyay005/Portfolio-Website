@@ -15,12 +15,21 @@ if (typeof window !== "undefined") {
 // Portfolio Projects Data
 const projects = [
   {
-    title: "Video-Conferencing & Chat",
-    description: "A comprehensive real-time video streaming and communication platform. Engineered with WebRTC for low-latency peer-to-peer connections and Socket.io for instantaneous messaging.",
-    tags: ["Next.js", "WebRTC", "Socket.io", "Tailwind"],
+    title: "Real-Time chat & Video-Conferencing Platform",
+    description: "A comprehensive real-time Communication through chat & video streaming platform. Engineered with WebRTC for low-latency peer-to-peer connections and Socket.io for instantaneous messaging.",
+    tags: ["React", "WebRTC", "Socket.io", "Node.js"],
     github: "https://github.com/Harsh-Upadhyay005/WebMeet",
     live: "https://web-meet-liart.vercel.app/",
     image: "/projects/video-conferencing.png", 
+    featured: true,
+  },
+  {
+    title: "BharatSetu: Political CRM for Government Offices",
+    description: "Production-grade, multi-tenant political CRM for government offices. Every citizen complaint — received, tracked, assigned, escalated, resolved. Zero information loss. Full accountability.",
+    tags: ["Next.js", "Express", "PostgreSQL","TypeScript", "Node.js"],
+    github: "https://github.com/Harsh-Upadhyay005/P-CRM-Platform",
+    live: "https://p-crm-platform.vercel.app/",
+    image: "/projects/BharatSetu.png", 
     featured: true,
   },
   {
