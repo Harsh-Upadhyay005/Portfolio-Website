@@ -79,9 +79,9 @@ export default function About() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 mt-2 sm:mt-4 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 mt-2 sm:mt-4 items-center flex-wrap justify-center">
             {/* 3D Stacked Carousel (Left Side) */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.6, duration: 0.8, type: "spring" }}
@@ -95,16 +95,19 @@ export default function About() {
                   "/frontface.png",
                 ]} 
               />
-            </motion.div>
+            </motion.div> */}
 
             {/* Text Content (Right Side) */}
             <motion.div
+
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
               className="w-full space-y-4 text-left order-1 lg:order-2"
             >
               {/* Introduction */}
+              {/* center the introduction text vertically and horizontally */}
+              <div className="flex flex-col items-center justify-center text-center">
               <div className="bg-white/10 dark:bg-zinc-900/30 backdrop-blur-2xl rounded-3xl p-5 sm:p-6 border border-white/20 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
                 <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-3 flex justify-start items-center gap-3">
                   <span className="text-3xl hover:rotate-12 transition-transform cursor-default"></span> Hello There!
@@ -120,6 +123,7 @@ export default function About() {
                   in Data Science</span>, I specialize in building responsive, user-friendly applications that deliver 
                   outstanding performance and delightful user experiences.
                 </p>
+              </div>
               </div>
             </motion.div>
           </div>
