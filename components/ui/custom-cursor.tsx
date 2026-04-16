@@ -65,7 +65,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      <style dangerouslySetInlineStyle={{
+      <style dangerouslySetInnerHTML={{
         __html: `
           a, button, [role="button"], input, select, textarea {
             cursor: none !important;
