@@ -73,9 +73,9 @@ export default function CustomCursor() {
         `
       }} />
 
-      {/* Main tiny dot (Fast follower) */}
+      {/* Main minimal dot (Fast follower) */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-orange-500 rounded-full pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-orange-500 rounded-full pointer-events-none z-[10000]"
         style={{
           x: cursorX,
           y: cursorY,
@@ -87,25 +87,29 @@ export default function CustomCursor() {
         animate={{
           scale: isHovered ? 0 : 1,
         }}
-        transition={{ type: "spring", stiffness: 400, damping: 20, mass: 0.1 }}
+        transition={{ type: "spring", stiffness: 800, damping: 25 }}
       />
 
-      {/* Outer Ring (Trailing spring animation) */}
+      {/* Sleek Mix-Blend Difference Circle */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border-[1.5px] border-orange-500 rounded-full pointer-events-none z-[9998] mix-blend-difference"
+        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full mix-blend-difference bg-white"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
+          width: 32,
+          height: 32,
           translateX: "-50%",
           translateY: "-50%",
           opacity: isVisible ? 1 : 0,
         }}
         initial={false}
         animate={{
-          scale: isHovered ? 1.8 : 1,
-          backgroundColor: isHovered ? "rgba(249, 115, 22, 1)" : "rgba(249, 115, 22, 0)",
+          scale: isHovered ? 2.5 : 1,
+          backgroundColor: isHovered ? "#fff" : "transparent",
+          // When not hovered, it shows a sleek border. When hovered, it becomes solid.
+          border: isHovered ? "0px solid #fff" : "1.5px solid rgba(255, 255, 255, 0.8)",
         }}
-        transition={{ type: "spring", stiffness: 200, damping: 20 }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
       />
     </>
   );

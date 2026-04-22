@@ -13,6 +13,9 @@ import {
   SiNodedotjs,
   SiExpress,
   SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiSupabase,
   SiPython,
   SiGit,
   SiGithub,
@@ -20,8 +23,9 @@ import {
   SiPostman,
   SiVercel,
   SiFigma,
-  SiAdobephotoshop
+  SiAdobephotoshop,
 } from "react-icons/si";
+import { TbApi } from "react-icons/tb";
 import { FaJava, FaAws } from "react-icons/fa";
 import { VscCode } from "react-icons/vsc";
 
@@ -45,9 +49,18 @@ export default function Skills() {
       skills: [
         { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
         { name: "Express.js", icon: SiExpress, color: "#000000" },
-        { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+        { name: "REST API", icon: TbApi, color: "#47A248" },
         { name: "Python", icon: SiPython, color: "#3776AB" },
         { name: "Java", icon: FaJava, color: "#007396" },
+      ]
+    },
+    {
+      category: "Databases & Storage",
+      skills: [
+        { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+        { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+        { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+        { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
       ]
     },
     {

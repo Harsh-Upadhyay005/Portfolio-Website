@@ -80,22 +80,8 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 mt-2 sm:mt-4 items-center flex-wrap justify-center">
-            {/* 3D Stacked Carousel (Left Side) */}
-            {/* <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.6, duration: 0.8, type: "spring" }}
-              className="relative w-full flex justify-center items-center py-2 order-2 lg:order-1"
-            >
-              <StackedCarousel 
-                images={[
-                  "/profile.png", 
-                  "/profile1.png", 
-                  "/BharatMandapam.jpeg",
-                  "/frontface.png",
-                ]} 
-              />
-            </motion.div> */}
+            
+            
 
             {/* Text Content (Right Side) */}
             <motion.div

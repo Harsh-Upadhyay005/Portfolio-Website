@@ -14,6 +14,9 @@ const Skills = dynamic(() => import("@/components/Skills"), {
 const Education = dynamic(() => import("@/components/Education"), {
   loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div></div>
 });
+const Hackathons = dynamic(() => import("@/components/Hackathons"), {
+  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div></div>
+});
 const Resume = dynamic(() => import("@/components/Resume"), {
   loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div></div>
 });
@@ -36,6 +39,7 @@ export default function Home() {
         <About />
         <Skills />
         <Education />
+        <Hackathons />
         <Resume />
         <Projects />
         <Signature />
