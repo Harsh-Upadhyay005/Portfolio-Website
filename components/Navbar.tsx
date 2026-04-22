@@ -15,7 +15,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 50);
 
       // Detect active section
-      const sections = ["about", "skills", "education", "resume", "projects", "contact"];
+      const sections = ["about", "skills", "education", "hackathons", "resume", "projects", "contact"];
       let current = "";
       for (const id of sections) {
         const el = document.getElementById(id);
@@ -44,6 +44,7 @@ export default function Navbar() {
     { name: "About", id: "about" },
     { name: "Skills", id: "skills" },
     { name: "Education", id: "education" },
+    { name: "Hackathons", id: "hackathons" },
     { name: "Resume", id: "resume" },
     { name: "Projects", id: "projects" },
   ];
@@ -92,9 +93,7 @@ export default function Navbar() {
                 style={{ filter: "drop-shadow(0 4px 12px rgba(251, 191, 36, 0.3))" }}
               />
             </motion.div>
-            <span className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white group-hover:text-orange-500 transition-colors duration-300">
-              Portfolio
-            </span>
+            
           </button>
 
           {/* Desktop Navigation */}
