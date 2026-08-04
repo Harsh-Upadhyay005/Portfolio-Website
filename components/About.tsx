@@ -1,120 +1,180 @@
 "use client";
-import { motion } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
-import Image from "next/image";
-import { Code2, Rocket, Heart, Sparkles, Award, Target } from "lucide-react";
-import { GradientShimmerText } from "./ui/shimmer-text";
-import { StackedCarousel } from "./ui/stacked-carousel";
+
+import { motion } from "framer-motion";
+import {
+  Quote,
+  GraduationCap,
+  Lightbulb,
+  Rocket,
+  Code,
+  MapPin,
+  CheckCircle2
+} from "lucide-react";
 
 export default function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-
   return (
-    <section id="about" className="bg-linear-to-br from-orange-50 via-orange-50 to-zinc-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 py-6 sm:py-10 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-orange-300/30 dark:bg-orange-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-300/30 dark:bg-orange-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-zinc-300/20 dark:bg-zinc-500/5 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
-          {/* Section Header */}
-          <div className="text-center mb-6 sm:mb-8">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={isInView ? { scale: 1 } : {}}
-              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="inline-block mb-4"
-            >
-              <div className="bg-linear-to-r from-orange-600 to-orange-600 p-3 rounded-2xl">
-                <Sparkles className="w-8 h-8 text-white" />
+    <section id="about" className="py-20 sm:py-28 bg-zinc-50 dark:bg-zinc-950 transition-colors relative overflow-hidden">
+      {/* Background Soft Accents */}
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Clean 2-Card Layout Matching Design */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          
+          {/* Left Main Quote Card (8 Columns on lg) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-8 flex flex-col justify-between rounded-3xl bg-zinc-900/90 dark:bg-zinc-900/95 border border-zinc-800/80 p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden group hover:border-orange-500/30 transition-all duration-300"
+          >
+            {/* Ambient inner glow */}
+            <div className="absolute -top-24 -left-24 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div>
+              {/* Quote Mark Icon 99 */}
+              <div className="mb-6 text-orange-500 dark:text-orange-500/90">
+                <span className="text-5xl sm:text-6xl font-serif leading-none font-bold select-none tracking-tighter opacity-90">
+                  99
+                </span>
               </div>
-            </motion.div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-linear-to-r from-orange-600 via-orange-600 to-zinc-600 bg-clip-text text-transparent mb-3 sm:mb-4">
-              {"About Me".split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 20, rotateX: 90 }}
-                  animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
-                  transition={{ 
-                    delay: 0.3 + index * 0.05,
-                    duration: 0.4,
-                    type: "spring",
-                    stiffness: 100
-                  }}
-                  className="inline-block"
-                  style={{ transformOrigin: "bottom" }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </h2>
-            <motion.p 
-              className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.7 }}
-            >
-              {["Crafting", "digital", "experiences", "with", "passion", "and", "precision"].map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{
-                    delay: 0.8 + index * 0.1,
-                    duration: 0.3
-                  }}
-                  className="inline-block mr-[0.3em]"
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </motion.p>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 mt-2 sm:mt-4 items-center flex-wrap justify-center">
-            
-            
+              {/* Main Headline */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-snug mb-6 tracking-tight">
+                I am a{" "}
+                <span className="text-orange-500 dark:text-orange-400">
+                  Full-Stack Developer
+                </span>{" "}
+                who loves turning ideas into real, production-ready products—from code to deployment.
+              </h2>
 
-            {/* Text Content (Right Side) */}
-            <motion.div
+              {/* Detailed Bio Paragraph */}
+              <p className="text-sm sm:text-base md:text-lg text-zinc-300 dark:text-zinc-300 leading-relaxed mb-8 font-normal">
+                I have practical experience with{" "}
+                <strong className="font-semibold text-white">
+                  JavaScript, TypeScript, React, Node.js, Next.js and Python
+                </strong>
+                , and I specialize in building scalable, maintainable applications while emphasizing clean architecture, performance, and reliability.
+              </p>
+            </div>
 
-              initial={{ opacity: 0, x: 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="w-full space-y-4 text-left order-1 lg:order-2"
-            >
-              {/* Introduction */}
-              {/* center the introduction text vertically and horizontally */}
-              <div className="flex flex-col items-center justify-center text-center">
-              <div className="bg-white/10 dark:bg-zinc-900/30 backdrop-blur-2xl rounded-3xl p-5 sm:p-6 border border-white/20 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
-                <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-3 flex justify-start items-center gap-3">
-                  <span className="text-3xl hover:rotate-12 transition-transform cursor-default"></span> Hello There!
-                </h3>
-                <p className="text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed mb-3">
-                  I&apos;m a passionate <span className="font-semibold text-orange-600 dark:text-orange-400">Full Stack Developer</span> with 
-                  a keen eye for design and a love for creating exceptional digital experiences. I transform ideas into 
-                  reality through <GradientShimmerText gradientFrom="#ea580c" gradientTo="#f97316" speed={2.5} className="font-semibold">clean code</GradientShimmerText> and{" "}
-                  <GradientShimmerText gradientFrom="#0d9488" gradientTo="#14b8a6" speed={2.5} className="font-semibold">intuitive interfaces</GradientShimmerText>.
-                </p>
-                <p className="text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                  Currently pursuing my <span className="font-semibold">Bachelor&apos;s in Computer Science and Engineering 
-                  in Data Science</span>, I specialize in building responsive, user-friendly applications that deliver 
-                  outstanding performance and delightful user experiences.
-                </p>
+            {/* Bottom Badge Pills */}
+            <div className="flex flex-wrap items-center gap-3 pt-4">
+              <div className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-zinc-800/80 border border-zinc-700/60 text-xs sm:text-sm font-semibold text-orange-400 shadow-sm hover:border-orange-500/40 transition-colors">
+                <div className="p-1 rounded-full bg-orange-500/20 text-orange-400">
+                  <GraduationCap size={15} />
+                </div>
+                <span>Continuous Learning</span>
               </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
 
+              <div className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-zinc-800/80 border border-zinc-700/60 text-xs sm:text-sm font-semibold text-orange-400 shadow-sm hover:border-orange-500/40 transition-colors">
+                <div className="p-1 rounded-full bg-orange-500/20 text-orange-400">
+                  <Lightbulb size={15} />
+                </div>
+                <span>Problem Solving</span>
+              </div>
+
+              <div className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-zinc-800/80 border border-zinc-700/60 text-xs sm:text-sm font-semibold text-orange-400 shadow-sm hover:border-orange-500/40 transition-colors">
+                <div className="p-1 rounded-full bg-orange-500/20 text-orange-400">
+                  <Rocket size={15} />
+                </div>
+                <span>Innovation Focus</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right "AT A GLANCE" Quick Facts Card (4 Columns on lg) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-4 flex flex-col justify-between rounded-3xl bg-zinc-900/90 dark:bg-zinc-900/95 border border-zinc-800/80 p-6 sm:p-8 shadow-2xl relative overflow-hidden group hover:border-orange-500/30 transition-all duration-300"
+          >
+            {/* Header */}
+            <div>
+              <h3 className="text-xs uppercase font-extrabold tracking-widest text-zinc-400 mb-6">
+                AT A GLANCE
+              </h3>
+
+              {/* Status Items List */}
+              <div className="space-y-6">
+                
+                {/* Row 1: ROLE */}
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-full bg-zinc-800/90 border border-zinc-700/60 text-orange-400 shrink-0">
+                    <Code size={18} />
+                  </div>
+                  <div>
+                    <span className="block text-[11px] uppercase font-bold tracking-wider text-zinc-500 mb-0.5">
+                      ROLE
+                    </span>
+                    <span className="text-sm sm:text-base font-bold text-white">
+                      Full-Stack Developer
+                    </span>
+                  </div>
+                </div>
+
+                <div className="w-full h-px bg-zinc-800/60" />
+
+                {/* Row 2: EDUCATION */}
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-full bg-zinc-800/90 border border-zinc-700/60 text-orange-400 shrink-0">
+                    <GraduationCap size={18} />
+                  </div>
+                  <div>
+                    <span className="block text-[11px] uppercase font-bold tracking-wider text-zinc-500 mb-0.5">
+                      EDUCATION
+                    </span>
+                    <span className="text-sm sm:text-base font-bold text-white">
+                      B.Tech, CSE · 2024-2028
+                    </span>
+                  </div>
+                </div>
+
+                <div className="w-full h-px bg-zinc-800/60" />
+
+                {/* Row 3: BASED IN */}
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-full bg-zinc-800/90 border border-zinc-700/60 text-orange-400 shrink-0">
+                    <MapPin size={18} />
+                  </div>
+                  <div>
+                    <span className="block text-[11px] uppercase font-bold tracking-wider text-zinc-500 mb-0.5">
+                      BASED IN
+                    </span>
+                    <span className="text-sm sm:text-base font-bold text-white">
+                      India
+                    </span>
+                  </div>
+                </div>
+
+                <div className="w-full h-px bg-zinc-800/60" />
+
+                {/* Row 4: STATUS */}
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-full bg-zinc-800/90 border border-zinc-700/60 text-orange-400 shrink-0">
+                    <CheckCircle2 size={18} />
+                  </div>
+                  <div>
+                    <span className="block text-[11px] uppercase font-bold tracking-wider text-zinc-500 mb-0.5">
+                      STATUS
+                    </span>
+                    <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-white">
+                      <span>Open to opportunities</span>
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );
