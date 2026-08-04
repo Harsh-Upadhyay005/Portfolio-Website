@@ -148,3 +148,21 @@ html.dark {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
