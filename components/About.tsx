@@ -36,11 +36,11 @@ export default function About() {
 
             <div>
               {/* Quote Mark Icon 99 */}
-              <div className="mb-6 text-orange-500 dark:text-orange-500/90">
+              {/* <div className="mb-6 text-orange-500 dark:text-orange-500/90">
                 <span className="text-5xl sm:text-6xl font-serif leading-none font-bold select-none tracking-tighter opacity-90">
                   99
                 </span>
-              </div>
+              </div> */}
 
               {/* Main Headline */}
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-snug mb-6 tracking-tight">
@@ -130,7 +130,8 @@ export default function About() {
                       EDUCATION
                     </span>
                     <span className="text-sm sm:text-base font-bold text-white">
-                      B.Tech, CSE · 2024-2028
+                      B.Tech, CSE Data Science 
+                      · 2024-2028
                     </span>
                   </div>
                 </div>
