@@ -70,7 +70,7 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white mb-2 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-2 tracking-tight">
                 Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Projects</span>
               </h2>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
