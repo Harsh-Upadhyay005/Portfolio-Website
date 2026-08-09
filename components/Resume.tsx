@@ -88,7 +88,7 @@ export default function Resume() {
               <span className="text-sm font-medium text-yellow-700 dark:text-yellow-300">Professional Resume</span>
             </motion.div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-zinc-900 via-yellow-900 to-zinc-900 dark:from-white dark:via-yellow-200 dark:to-white bg-clip-text text-transparent">
                 Download My
               </span>

@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Send, CheckCircle2 } from "lucide-react";
-import { supabase } from "@/lib/supabase";
 
 export default function Signature() {
   const [name, setName] = useState("");
@@ -11,31 +10,26 @@ export default function Signature() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const guestbookEmail = "uharsh328@gmail.com";
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
 
-    if (!supabase) {
-      alert("Guestbook is temporarily unavailable. Supabase environment variables are not configured.");
-      return;
-    }
-    
     setIsSubmitting(true);
     
     try {
-      const { error } = await supabase
-        .from('guestbook')
-        .insert([{ name: name.trim(), message: message.trim() }]);
-        
-      if (error) {
-        console.error('Error inserting data:', error);
-        alert(`Failed to send message: ${error.message}. Please check your browser console for more details.`);
-      } else {
-        setIsSubmitted(true);
-      }
+      const subject = encodeURIComponent(`Guestbook message from ${name.trim()}`);
+      const body = encodeURIComponent(
+        `Name: ${name.trim()}\n\nMessage:\n${message.trim()}\n\nSent from the portfolio guestbook.`
+      );
+      const mailtoUrl = `mailto:${guestbookEmail}?subject=${subject}&body=${body}`;
+
+      window.location.href = mailtoUrl;
+      setIsSubmitted(true);
     } catch (err) {
       console.error('Unexpected error:', err);
-      alert('An unexpected error occurred.');
+      alert('Could not open your email app. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -48,8 +42,8 @@ export default function Signature() {
   };
 
   return (
-    <section id="guestbook" className="py-16 sm:py-24 relative overflow-hidden bg-transparent border-t border-black/5 dark:border-white/10">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
+    <section id="guestbook" className="py-16 sm:py-24 relative overflow-hidden bg-transparent border-t border-black/5 dark:border-white/10 px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -62,11 +56,11 @@ export default function Signature() {
             <MessageSquare size={16} />
             <span>Digital Guestbook</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
-            Leave Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Thoughts</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 tracking-tight">
+            Leave Your <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-500 to-amber-500">Thoughts</span>
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto">
-            Were you here? Drop a comment, share your feedback, or just say hi before you go!
+            Were you here? Drop a comment, share your feedback, or just say hi before you go. Your message will open in an email draft to my inbox.
           </p>
         </motion.div>
 
@@ -122,9 +116,9 @@ export default function Signature() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-medium hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg shadow-orange-500/25 mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-linear-to-r from-orange-500 to-amber-500 text-white font-medium hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg shadow-orange-500/25 mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <span>{isSubmitting ? 'Posting...' : 'Post Comment'}</span>
+                    <span>{isSubmitting ? 'Opening Email...' : 'Send to Email'}</span>
                     <Send size={18} />
                   </button>
                 </motion.form>
@@ -142,9 +136,9 @@ export default function Signature() {
                   >
                     <CheckCircle2 className="w-16 h-16 text-orange-500 mb-4" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-2">Message Sent!</h3>
+                  <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-2">Email Draft Opened</h3>
                   <p className="text-zinc-600 dark:text-zinc-400 mb-8 max-w-sm">
-                    Thanks for stopping by and leaving your thoughts. I appreciate the feedback!
+                    Thanks for stopping by and leaving your thoughts. Please review the email draft and send it from your mail app.
                   </p>
                   <button 
                     onClick={handleReset}
