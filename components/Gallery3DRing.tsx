@@ -174,8 +174,8 @@ export default function Gallery3DRing({ items, className = "" }: Gallery3DRingPr
   return (
     <div className={`relative w-full overflow-hidden select-none py-2 ${className}`}>
       {/* Top Layout Switcher Controls */}
-      <div className="relative z-20 max-w-3xl mx-auto px-4 mb-5 flex items-center justify-between gap-4 flex-wrap">
-        <div className="flex items-center gap-1 p-1 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/90 border border-zinc-800/80 backdrop-blur-md shadow-sm text-xs font-semibold">
+      <div className="relative z-20 max-w-3xl mx-auto px-3 sm:px-4 mb-5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 flex-wrap">
+        <div className="flex items-center justify-center gap-1 p-1 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/90 border border-zinc-800/80 backdrop-blur-md shadow-sm text-xs font-semibold w-full sm:w-auto">
           <button
             onClick={() => setLayoutMode("gallery")}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
@@ -202,7 +202,7 @@ export default function Gallery3DRing({ items, className = "" }: Gallery3DRingPr
         </div>
 
         {layoutMode === "flat" && (
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center justify-center gap-1.5 flex-wrap sm:flex-nowrap w-full sm:w-auto">
             <button
               onClick={() => setAutoRotate(!autoRotate)}
               className={`p-1.5 rounded-lg border transition-all text-xs flex items-center gap-1 font-medium ${
@@ -295,7 +295,7 @@ export default function Gallery3DRing({ items, className = "" }: Gallery3DRingPr
       )}
 
       {layoutMode === "flat" && (
-        <div className="relative z-20 flex justify-center mb-3 pointer-events-none">
+        <div className="relative z-20 hidden sm:flex justify-center mb-3 pointer-events-none">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zinc-900/60 border border-zinc-800 text-[10px] text-zinc-400 backdrop-blur-sm">
             <MoveHorizontal size={12} className="text-orange-400 animate-pulse" />
             <span>Drag horizontally or scroll wheel to rotate 3D arc</span>
@@ -323,7 +323,7 @@ export default function Gallery3DRing({ items, className = "" }: Gallery3DRingPr
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {project.featured && (
-                    <div className="absolute top-2.5 left-2.5 bg-orange-500/90 text-white text-[9px] font-extrabold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-md uppercase tracking-wider">
+                    <div className="absolute top-2.5 left-2.5 bg-orange-500/90 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-md uppercase tracking-wider">
                       <Sparkles size={10} /> Featured
                     </div>
                   )}
@@ -367,7 +367,7 @@ export default function Gallery3DRing({ items, className = "" }: Gallery3DRingPr
           onWheel={handleWheel}
           onMouseEnter={() => (isHovered.current = true)}
           onMouseLeave={() => (isHovered.current = false)}
-          className="relative w-full h-[460px] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none"
+          className="relative w-full h-[340px] sm:h-[460px] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none"
           style={{ perspective: "1000px" }}
         >
           <div
@@ -413,7 +413,7 @@ export default function Gallery3DRing({ items, className = "" }: Gallery3DRingPr
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       {project.featured && (
-                        <div className="absolute top-2 left-2 bg-orange-500 text-white text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full shadow flex items-center gap-1">
+                        <div className="absolute top-2 left-2 bg-orange-500 text-white text-[9px] font-bold uppercase px-2 py-0.5 rounded-full shadow flex items-center gap-1">
                           <Sparkles size={10} /> Featured
                         </div>
                       )}
@@ -456,7 +456,7 @@ export default function Gallery3DRing({ items, className = "" }: Gallery3DRingPr
       {/* Project Detail Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-xl bg-zinc-900 border border-zinc-800 rounded-2xl p-5 sm:p-6 shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-[calc(100vw-2rem)] sm:max-w-xl bg-zinc-900 border border-zinc-800 rounded-2xl p-5 sm:p-6 shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedProject(null)}
               className="absolute top-4 right-4 p-1.5 rounded-full bg-zinc-800/80 text-zinc-400 hover:text-white hover:bg-zinc-700 transition-all z-10"
@@ -479,7 +479,7 @@ export default function Gallery3DRing({ items, className = "" }: Gallery3DRingPr
                   <Sparkles size={13} /> Featured Project
                 </span>
               )}
-              <h2 className="text-xl sm:text-2xl font-extrabold text-white mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">
                 {selectedProject.title}
               </h2>
               <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-5">
@@ -502,7 +502,7 @@ export default function Gallery3DRing({ items, className = "" }: Gallery3DRingPr
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 pt-3 border-t border-zinc-800">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3 border-t border-zinc-800">
                 <a
                   href={selectedProject.live}
                   target="_blank"
