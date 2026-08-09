@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import gsap from "gsap";
-import { ArrowDown, Github, Linkedin, Twitter, Mail, Code2, Sparkles, Zap } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Zap } from "lucide-react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 
@@ -78,7 +78,7 @@ export default function Hero() {
   return (
     <section 
       ref={containerRef} 
-      className="relative min-h-screen w-full overflow-hidden bg-[#fafafa] dark:bg-[#0c0c0c] flex flex-col items-center justify-center transition-colors font-sans selection:bg-orange-500/30"
+      className="relative min-h-[100dvh] w-full overflow-hidden bg-[#fafafa] dark:bg-[#0c0c0c] flex flex-col items-center justify-center transition-colors font-sans selection:bg-orange-500/30"
     >
       {/* --- GSAP Animated Abstract Background Elements --- */}
       <div 
@@ -86,15 +86,15 @@ export default function Hero() {
         className="absolute inset-0 z-0 pointer-events-none opacity-80 dark:opacity-50"
       >
         {/* Soft Ambient Glows */}
-        <div className="gsap-shape absolute top-1/4 left-[15%] w-[30vh] h-[30vh] bg-orange-500/10 rounded-full blur-[100px]" />
-        <div className="gsap-shape absolute bottom-1/4 right-[10%] w-[40vh] h-[40vh] bg-zinc-400/20 dark:bg-zinc-600/20 rounded-full blur-[100px]" />
-        <div className="gsap-shape absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vh] h-[50vh] bg-orange-600/5 rounded-full blur-[120px]" />
+        <div className="gsap-shape absolute top-1/4 left-[10%] w-[22vh] h-[22vh] sm:w-[30vh] sm:h-[30vh] bg-orange-500/10 rounded-full blur-[100px]" />
+        <div className="gsap-shape absolute bottom-1/4 right-[6%] w-[28vh] h-[28vh] sm:w-[40vh] sm:h-[40vh] bg-zinc-400/20 dark:bg-zinc-600/20 rounded-full blur-[100px]" />
+        <div className="gsap-shape absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[36vh] h-[36vh] sm:w-[50vh] sm:h-[50vh] bg-orange-600/5 rounded-full blur-[120px]" />
         
         {/* Floating Geometric Wireframes */}
-        <div className="gsap-shape absolute top-[20%] right-[25%] w-24 h-24 border border-zinc-300 dark:border-zinc-700 rounded-2xl rotate-12 backdrop-blur-sm" />
-        <div className="gsap-shape absolute bottom-[25%] left-[20%] w-32 h-32 border border-orange-500/30 rounded-full backdrop-blur-sm" />
-        <div className="gsap-shape absolute top-[60%] right-[15%] w-12 h-12 bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-900 rounded-lg shadow-xl rotate-[35deg]" />
-        <div className="gsap-shape absolute top-[30%] left-[10%] w-8 h-8 bg-orange-500/40 rounded-full" />
+        <div className="gsap-shape absolute top-[20%] right-[25%] hidden sm:block w-24 h-24 border border-zinc-300 dark:border-zinc-700 rounded-2xl rotate-12 backdrop-blur-sm" />
+        <div className="gsap-shape absolute bottom-[25%] left-[20%] hidden sm:block w-32 h-32 border border-orange-500/30 rounded-full backdrop-blur-sm" />
+        <div className="gsap-shape absolute top-[60%] right-[12%] w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-900 rounded-lg shadow-xl rotate-[35deg]" />
+        <div className="gsap-shape absolute top-[30%] left-[8%] w-6 h-6 sm:w-8 sm:h-8 bg-orange-500/40 rounded-full" />
       </div>
 
       {/* Subtle Noise / Grain Overlay */}
@@ -103,7 +103,7 @@ export default function Hero() {
       {/* --- Main Content Container (Framer Motion) --- */}
       <motion.div 
         style={{ y: yOffset, opacity }}
-        className="relative z-10 w-full max-w-6xl px-6 sm:px-12 mx-auto flex flex-col items-center text-center mt-12 sm:mt-0"
+        className="relative z-10 w-full max-w-5xl px-4 sm:px-6 lg:px-8 mx-auto flex flex-col items-center text-center mt-12 sm:mt-0"
       >
         
         {/* Creative Badge */}
@@ -111,7 +111,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="group relative inline-flex items-center gap-2 px-4 py-2 mb-8 sm:mb-10 rounded-full bg-black/5 dark:bg-zinc-900/30 border border-black/10 dark:border-white/10 backdrop-blur-xl shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-black/10 dark:hover:bg-zinc-800/40 transition-colors"
+          className="group relative inline-flex items-center gap-2 px-4 py-2 mb-8 sm:mb-10 rounded-full bg-black/5 dark:bg-zinc-900/30 border border-black/10 dark:border-white/10 backdrop-blur-xl shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:bg-black/10 dark:hover:bg-zinc-800/40 transition-colors max-w-full"
         >
           
         </motion.div>
@@ -152,11 +152,11 @@ export default function Hero() {
         {/* GSAP Staggered Headline */}
         <h1 
           ref={headlineRef}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 sm:mb-6 tracking-tight text-zinc-900 dark:text-zinc-100"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6 tracking-tight leading-[0.95] text-zinc-900 dark:text-zinc-100 antialiased"
           style={{ perspective: "1000px" }}
         >
-          <span className="word inline-block mr-3 sm:mr-4">Hey,</span> 
-          <span className="word inline-block mr-3 sm:mr-4">I&apos;m</span> 
+          <span className="word inline-block mr-2 sm:mr-4">Hey,</span> 
+          <span className="word inline-block mr-2 sm:mr-4">I&apos;m</span> 
           <span className="word inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-400 to-zinc-500 dark:from-orange-500 dark:via-orange-600 dark:to-zinc-500">Harsh</span>
         </h1>
 
@@ -165,7 +165,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400 h-8 sm:h-10 mb-8 max-w-2xl"
+          className="text-base sm:text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400 h-8 sm:h-10 mb-8 max-w-2xl"
         >
           <TypeAnimation
             sequence={[
@@ -177,7 +177,7 @@ export default function Hero() {
             wrapper="span"
             speed={50}
             repeat={Infinity}
-            className="inline-block border-b-2 border-orange-500/50"
+            className="inline-block border-b-2 border-orange-500/30 pb-0.5"
           />
         </motion.div>
 
@@ -186,13 +186,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6, type: "spring" }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-12 sm:mb-16"
+          className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 w-full sm:w-auto max-w-md sm:max-w-none"
         >
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToAbout}
-            className="group relative flex items-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-2xl font-bold shadow-xl shadow-zinc-900/20 dark:shadow-zinc-100/10 overflow-hidden"
+            className="group relative flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-2xl font-bold shadow-xl shadow-zinc-900/20 dark:shadow-zinc-100/10 overflow-hidden"
           >
             <span className="relative z-10">Explore My Work</span>
             <Zap className="relative z-10 w-4 h-4 group-hover:text-orange-400 dark:group-hover:text-orange-600 transition-colors" />
@@ -203,7 +203,7 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="#contact"
-            className="px-8 py-4 bg-black/5 dark:bg-zinc-900/40 backdrop-blur-xl border border-black/10 dark:border-white/10 text-zinc-800 dark:text-zinc-200 rounded-2xl font-bold hover:border-orange-500 hover:text-orange-500 dark:hover:border-orange-500 dark:hover:text-orange-400 transition-colors shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
+            className="w-full sm:w-auto px-8 py-4 bg-black/5 dark:bg-zinc-900/40 backdrop-blur-xl border border-black/10 dark:border-white/10 text-zinc-800 dark:text-zinc-200 rounded-2xl font-bold hover:border-orange-500 hover:text-orange-500 dark:hover:border-orange-500 dark:hover:text-orange-400 transition-colors shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)] text-center"
           >
             Get In Touch
           </motion.a>
@@ -214,9 +214,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="flex items-center gap-3 p-2 bg-white/80 dark:bg-zinc-900/30 backdrop-blur-xl rounded-2xl border border-black/10 dark:border-white/10 shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+          className="flex flex-wrap items-center justify-center gap-2 p-2 bg-white/80 dark:bg-zinc-900/30 backdrop-blur-xl rounded-2xl border border-black/10 dark:border-white/10 shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.12)] max-w-xs sm:max-w-none"
         >
-          {socialLinks.map((social, index) => (
+          {socialLinks.map((social) => (
             <motion.a
               key={social.label}
               href={social.href}
@@ -240,7 +240,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
         onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-2 group cursor-pointer"
+        className="hidden sm:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex-col items-center gap-2 group cursor-pointer"
         aria-label="Scroll to about section"
       >
         <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold group-hover:text-orange-500 transition-colors relative top-2">
