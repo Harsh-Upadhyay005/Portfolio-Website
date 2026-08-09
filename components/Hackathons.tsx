@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { TiltCard } from "@/components/ui/tilt-card";
 
 // Update the placeholder images/data below to match your actual hackathon experiences
@@ -65,19 +65,19 @@ export default function Hackathons() {
   });
 
   return (
-    <section id="hackathons" className="py-24 bg-gray-50 dark:bg-zinc-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="hackathons" className="py-16 sm:py-24 bg-gray-50 dark:bg-zinc-900 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
             Hackathon Experiences
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-400">
+          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-500 dark:text-gray-400">
             Building innovative solutions under pressure. Here is a timeline of my journey through various hackathons.
           </p>
         </motion.div>
@@ -103,7 +103,7 @@ export default function Hackathons() {
             return (
               <div
                 key={hackathon.id}
-                className={`relative flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 ${
+                className={`relative flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-16 ${
                   isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                 }`}
               >
@@ -124,7 +124,7 @@ export default function Hackathons() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className={`w-full lg:w-1/2 flex flex-col ${
                     isEven ? "lg:items-end lg:text-right" : "lg:items-start lg:text-left"
-                  } text-center`}
+                  } text-center lg:text-left`}
                 >
                   <span className="text-sm font-semibold tracking-wide text-orange-500 uppercase mb-1">
                     {hackathon.date}
