@@ -35,15 +35,8 @@ export default function About() {
             <div className="absolute -top-24 -left-24 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
             <div>
-              {/* Quote Mark Icon 99 */}
-              {/* <div className="mb-6 text-orange-500 dark:text-orange-500/90">
-                <span className="text-5xl sm:text-6xl font-serif leading-none font-bold select-none tracking-tighter opacity-90">
-                  99
-                </span>
-              </div> */}
-
               {/* Main Headline */}
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-snug mb-6 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-relaxed mb-6 tracking-tight">
                 I am a{" "}
                 <span className="text-orange-500 dark:text-orange-400">
                   Full-Stack Developer
@@ -96,7 +89,7 @@ export default function About() {
           >
             {/* Header */}
             <div>
-              <h3 className="text-xs uppercase font-extrabold tracking-widest text-zinc-400 mb-6">
+              <h3 className="text-xs uppercase font-bold tracking-widest text-zinc-400 mb-6">
                 AT A GLANCE
               </h3>
 
