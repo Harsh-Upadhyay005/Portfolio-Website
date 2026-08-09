@@ -64,8 +64,8 @@ export default function Navbar() {
           : "bg-transparent backdrop-blur-none"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 gap-3">
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -194,7 +194,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/98 dark:bg-zinc-900/98 backdrop-blur-lg border-t border-black/5 dark:border-zinc-800/50"
+            className="md:hidden bg-white/98 dark:bg-zinc-900/98 backdrop-blur-lg border-t border-black/5 dark:border-zinc-800/50 max-h-[calc(100dvh-3.5rem)] overflow-y-auto"
           >
             <div className="px-4 pt-3 pb-5 space-y-1">
               {navLinks.map((link, index) => {
