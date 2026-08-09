@@ -6,7 +6,6 @@ import { GraduationCap, Award, BookOpen, Sparkles, ExternalLink, X, Calendar, Ma
 import { SiCoursera, SiUdemy } from "react-icons/si";
 import { FaCertificate } from "react-icons/fa";
 import Image from "next/image"; 
-import { Certificate } from "crypto";
 
 export default function Education() {
   const ref = useRef(null);
@@ -64,12 +63,12 @@ export default function Education() {
   ];
 
   return (
-    <section id="education" className="min-h-screen bg-linear-to-br from-orange-50 via-orange-50 to-zinc-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
+    <section id="education" className="min-h-screen bg-linear-to-br from-orange-50 via-orange-50 to-zinc-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-20 right-10 w-80 h-80 bg-orange-300/20 dark:bg-orange-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-orange-300/20 dark:bg-orange-500/10 rounded-full blur-3xl" />
       
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -77,18 +76,18 @@ export default function Education() {
           transition={{ duration: 0.5 }}
         >
           {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <motion.div
               initial={{ scale: 0 }}
               animate={isInView ? { scale: 1 } : {}}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               className="inline-block mb-4"
             >
-              <div className="bg-linear-to-r from-orange-600 to-orange-600 p-3 rounded-2xl">
-                <BookOpen className="w-8 h-8 text-white" />
+              <div className="bg-linear-to-r from-orange-600 to-amber-500 p-2.5 rounded-2xl shadow-lg shadow-orange-500/20">
+                <BookOpen className="w-7 h-7 text-white" />
               </div>
             </motion.div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-linear-to-r from-orange-600 via-orange-600 to-zinc-600 bg-clip-text text-transparent mb-3 sm:mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white mb-3 sm:mb-4 tracking-tight">
               {"Education & Certifications".split("").map((char, index) => (
                 <motion.span
                   key={index}
@@ -128,33 +127,33 @@ export default function Education() {
           </div>
 
           {/* Education Cards */}
-          <div className="mb-12 sm:mb-16">
+          <div className="mb-10 sm:mb-12">
             {education.map((edu, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="relative group max-w-6xl mx-auto"
+                className="relative group max-w-5xl mx-auto"
               >
                 {/* Animated Background Glow */}
-                <div className="absolute -inset-1 bg-linear-to-r from-orange-600 via-amber-600 to-orange-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500" />
+                <div className="absolute -inset-1 bg-linear-to-r from-orange-600 via-amber-600 to-orange-600 rounded-3xl blur-lg opacity-15 group-hover:opacity-30 transition duration-500" />
                 
                 {/* Main Card with Grid Layout */}
-                <div className="relative bg-white/90 dark:bg-zinc-800/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-orange-200 dark:border-orange-900 shadow-2xl group-hover:shadow-orange-500/20 transition-all duration-300">
+                <div className="relative bg-white/90 dark:bg-zinc-800/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-orange-200/80 dark:border-orange-900 shadow-xl group-hover:shadow-orange-500/15 transition-all duration-300">
                   
                   {/* Top Gradient Bar */}
-                  <div className={`absolute top-0 left-0 right-0 h-2 bg-linear-to-r ${edu.color}`} />
+                  <div className={`absolute top-0 left-0 right-0 h-1.5 bg-linear-to-r ${edu.color}`} />
                   
-                  <div className="grid lg:grid-cols-5 gap-6 p-6 sm:p-8">
+                  <div className="grid lg:grid-cols-5 gap-5 p-5 sm:p-6">
                     {/* Left Side - College Image & Logo */}
-                    <div className="lg:col-span-2 space-y-4">
+                    <div className="lg:col-span-2 space-y-3">
                       {/* College Building Image */}
                       <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ delay: 0.5, duration: 0.5 }}
-                        className="relative rounded-2xl overflow-hidden shadow-xl group/img"
+                        className="relative rounded-2xl overflow-hidden shadow-lg group/img"
                       >
                         <div className="aspect-video bg-linear-to-br from-orange-100 to-amber-100 dark:from-orange-900/40 dark:to-amber-900/40 relative">
                           {/* Placeholder for college image */}
@@ -177,7 +176,7 @@ export default function Education() {
                             <motion.div
                               animate={{ scale: [1, 1.05, 1] }}
                               transition={{ duration: 2, repeat: Infinity }}
-                              className="bg-linear-to-r from-yellow-500 to-amber-500 text-white px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-lg"
+                              className="bg-linear-to-r from-yellow-500 to-amber-500 text-white px-3 py-1.5 rounded-full text-[11px] font-bold flex items-center gap-1.5 shadow-md"
                             >
                               <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
                               {edu.status}
@@ -186,7 +185,7 @@ export default function Education() {
 
                           {/* College Logo Overlay - Top Right */}
                           <div className="absolute top-3 left-3">
-                            <div className="bg-white dark:bg-zinc-800 p-2.5 rounded-xl shadow-2xl border-2 border-white dark:border-zinc-700">
+                            <div className="bg-white dark:bg-zinc-800 p-2.5 rounded-xl shadow-xl border-2 border-white dark:border-zinc-700">
                               <Image src={edu.collegeLogo} alt="Logo" width={48} height={48} className="rounded-lg" />
                               {/* Using GraduationCap icon as placeholder until you add your college logo */}
                               {/* <GraduationCap className="w-10 h-10 text-orange-600 dark:text-orange-400" /> */}
@@ -195,7 +194,7 @@ export default function Education() {
                         </div>
 
                         {/* Quick Stats Bar */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-white/95 dark:bg-zinc-800/95 backdrop-blur-sm p-3 border-t border-orange-200 dark:border-orange-800">
+                        <div className="absolute bottom-0 left-0 right-0 bg-white/95 dark:bg-zinc-800/95 backdrop-blur-sm p-2.5 border-t border-orange-200 dark:border-orange-800">
                           <div className="flex items-center justify-between text-xs">
                             <div className="flex items-center gap-1.5">
                               <Calendar className="w-3.5 h-3.5 text-orange-500" />
@@ -230,7 +229,7 @@ export default function Education() {
                     </div>
 
                     {/* Right Side - Details */}
-                    <div className="lg:col-span-3 space-y-5">
+                    <div className="lg:col-span-3 space-y-4">
                       {/* Institution Name */}
                       <motion.div
                         initial={{ opacity: 0, x: 20 }}
@@ -238,11 +237,11 @@ export default function Education() {
                         transition={{ delay: 0.4, duration: 0.5 }}
                       >
                         <div className="flex items-start gap-3 mb-2">
-                          <div className="bg-linear-to-br from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg">
-                            <Building2 className="w-6 h-6 text-white" />
+                          <div className="bg-linear-to-br from-orange-500 to-amber-500 p-2.5 rounded-xl shadow-lg">
+                            <Building2 className="w-5 h-5 text-white" />
                           </div>
                           <div className="flex-1">
-                            <h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white leading-tight">
+                            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white leading-tight">
                               {edu.institution}
                             </h3>
                           </div>
@@ -257,12 +256,12 @@ export default function Education() {
                         className="relative group/degree"
                       >
                         <div className="absolute inset-0 bg-linear-to-r from-orange-500/10 to-amber-500/10 rounded-xl blur-lg opacity-0 group-hover/degree:opacity-100 transition-opacity" />
-                        <div className="relative bg-linear-to-r from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 rounded-xl p-4 border border-orange-200 dark:border-orange-800">
+                        <div className="relative bg-linear-to-r from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 rounded-xl p-3.5 border border-orange-200 dark:border-orange-800">
                           <div className="flex items-start gap-2">
-                            <GraduationCap className="w-5 h-5 text-orange-600 dark:text-orange-400 mt-0.5 shrink-0" />
+                            <GraduationCap className="w-4.5 h-4.5 text-orange-600 dark:text-orange-400 mt-0.5 shrink-0" />
                             <div>
                               <p className="text-xs font-semibold text-orange-600 dark:text-orange-400 mb-1">BACHELOR&apos;S DEGREE</p>
-                              <p className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white leading-snug">
+                              <p className="text-sm sm:text-base font-bold text-zinc-900 dark:text-white leading-snug">
                                 {edu.degree}
                               </p>
                             </div>
@@ -275,13 +274,13 @@ export default function Education() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ delay: 0.6, duration: 0.5 }}
-                        className="bg-zinc-50 dark:bg-zinc-900/50 rounded-xl p-4 border border-zinc-200 dark:border-zinc-700"
+                        className="bg-zinc-50 dark:bg-zinc-900/50 rounded-xl p-3.5 border border-zinc-200 dark:border-zinc-700"
                       >
                         <div className="flex items-start gap-2">
-                          <BookOpen className="w-5 h-5 text-orange-500 mt-0.5 shrink-0" />
+                          <BookOpen className="w-4.5 h-4.5 text-orange-500 mt-0.5 shrink-0" />
                           <div>
                             <p className="text-xs font-semibold text-orange-600 dark:text-orange-400 mb-1">SPECIALIZATION</p>
-                            <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                            <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
                               {edu.description}
                             </p>
                           </div>
@@ -293,9 +292,9 @@ export default function Education() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.8, duration: 0.5 }}
-                        className="grid grid-cols-2 gap-3"
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-3"
                       >
-                        <div className="bg-linear-to-br from-yellow-50 to-zinc-50 dark:from-yellow-900/20 dark:to-zinc-900/20 rounded-xl p-4 border border-yellow-200 dark:border-yellow-800">
+                        <div className="bg-linear-to-br from-yellow-50 to-zinc-50 dark:from-yellow-900/20 dark:to-zinc-900/20 rounded-xl p-3.5 border border-yellow-200 dark:border-yellow-800">
                           <p className="text-xs font-semibold text-yellow-600 dark:text-yellow-400 mb-1">FOCUS AREAS</p>
                           <div className="flex flex-wrap gap-1.5">
                             <span className="text-xs bg-yellow-200 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300 px-2 py-1 rounded-md font-medium">Data Science</span>
@@ -303,10 +302,10 @@ export default function Education() {
                           </div>
                         </div>
                         
-                        <div className="bg-linear-to-br from-zinc-50 to-amber-50 dark:from-zinc-900/20 dark:to-amber-900/20 rounded-xl p-4 border border-zinc-200 dark:border-zinc-800">
+                        <div className="bg-linear-to-br from-zinc-50 to-amber-50 dark:from-zinc-900/20 dark:to-amber-900/20 rounded-xl p-3.5 border border-zinc-200 dark:border-zinc-800">
                           <p className="text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">ACHIEVEMENTS</p>
                           <div className="flex items-center gap-2">
-                            <Award className="w-5 h-5 text-amber-500" />
+                            <Award className="w-4.5 h-4.5 text-amber-500" />
                             <span className="text-sm font-bold text-zinc-900 dark:text-white">{edu.achievements.length}+ Awards</span>
                           </div>
                         </div>
@@ -324,16 +323,16 @@ export default function Education() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="bg-linear-to-r from-zinc-500 to-zinc-500 p-2.5 rounded-xl">
-                <Award className="w-6 h-6 text-white" />
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="bg-linear-to-r from-zinc-500 to-zinc-500 p-2.5 rounded-xl shadow-sm">
+                <Award className="w-5 h-5 text-white" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">
+              <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white">
                 Professional Certifications
               </h3>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
+            <div className="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
               {certifications.map((cert, index) => (
                 <motion.div
                   key={cert.name}
@@ -351,12 +350,12 @@ export default function Education() {
                   />
                   
                   {/* Card */}
-                  <div className="relative bg-white dark:bg-zinc-800 rounded-2xl p-5 border-2 border-zinc-200 dark:border-zinc-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300">
+                  <div className="relative bg-white dark:bg-zinc-800 rounded-2xl p-4 sm:p-5 border-2 border-zinc-200 dark:border-zinc-700 group-hover:border-transparent shadow-lg group-hover:shadow-2xl transition-all duration-300">
                     
                     {/* Content */}
                     <div className="relative z-10">
                       {/* Header with Icon */}
-                      <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-start justify-between mb-3">
                         <div 
                           className="p-3 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300"
                           style={{ backgroundColor: `${cert.iconColor}20` }}
@@ -382,13 +381,13 @@ export default function Education() {
                       </div>
 
                       {/* Certificate Name */}
-                      <h4 className="font-bold text-lg text-zinc-900 dark:text-white mb-2 leading-snug group-hover:text-transparent group-hover:bg-linear-to-r group-hover:bg-clip-text transition-all" style={{ backgroundImage: cert.certUrl ? `linear-gradient(to right, ${cert.iconColor}, ${cert.iconColor}dd)` : undefined }}>
+                      <h4 className="font-bold text-base sm:text-lg text-zinc-900 dark:text-white mb-2 leading-snug group-hover:text-transparent group-hover:bg-linear-to-r group-hover:bg-clip-text transition-all" style={{ backgroundImage: cert.certUrl ? `linear-gradient(to right, ${cert.iconColor}, ${cert.iconColor}dd)` : undefined }}>
                         {cert.name}
                       </h4>
 
                       {/* Provider & Date */}
                       <div className="flex items-center justify-between mb-3">
-                        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                        <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
                           by <span className="font-bold" style={{ color: cert.iconColor }}>{cert.provider}</span>
                         </p>
                         <div className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-500">
