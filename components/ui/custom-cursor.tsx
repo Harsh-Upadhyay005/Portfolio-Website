@@ -2,29 +2,18 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-export type CometMode = "classic" | "fire" | "dotted" | "ribbon" | "starfall";
+export type CometMode = "classic" | "dotted" | "fire";
 
 const modeNames: Record<CometMode, string> = {
   classic: "Classic Comet",
-  fire: "Fire Comet",
   dotted: "Dotted Trail",
-  ribbon: "Ribbon Trail",
-  starfall: "Starfall",
+  fire: "Fire Comet",
 };
 
 interface Dot {
   x: number;
   y: number;
   life: number;
-}
-
-interface Star {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  life: number;
-  size: number;
 }
 
 export default function CustomCursor() {
@@ -41,7 +30,6 @@ export default function CustomCursor() {
   const modeRef = useRef<CometMode>("classic");
 
   const dotsRef = useRef<Dot[]>([]);
-  const starsRef = useRef<Star[]>([]);
 
   useEffect(() => {
     modeRef.current = mode;
@@ -99,7 +87,6 @@ export default function CustomCursor() {
 
     const draw = () => {
       const { x: mouseX, y: mouseY } = mousePos.current;
-      const { x: lastX, y: lastY } = lastPos.current;
       const currentMode = modeRef.current;
       const head = headRef.current;
 
@@ -135,31 +122,6 @@ export default function CustomCursor() {
         }
       }
 
-      if (currentMode === "fire") {
-        if (head) {
-          head.style.background =
-            "radial-gradient(circle,#fff 0%,#ffcc00 50%,transparent 75%)";
-        }
-        updateChain(0.4);
-        for (let i = 0; i < points.length - 1; i++) {
-          const p1 = points[i];
-          const p2 = points[i + 1];
-          const t = i / points.length;
-          const width = Math.max(0.5, 9 * (1 - t));
-          const alpha = Math.max(0, 1 - t * 1.1);
-          const hue = 50 - t * 50;
-          ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `hsla(${hue},100%,55%,${alpha})`;
-          ctx.lineWidth = width;
-          ctx.lineCap = "round";
-          ctx.shadowBlur = 16;
-          ctx.shadowColor = `hsla(${hue},100%,50%,${alpha})`;
-          ctx.stroke();
-        }
-      }
-
       if (currentMode === "dotted") {
         if (head) {
           head.style.background =
@@ -188,70 +150,29 @@ export default function CustomCursor() {
         });
       }
 
-      if (currentMode === "ribbon") {
+      if (currentMode === "fire") {
         if (head) {
           head.style.background =
-            "radial-gradient(circle,#fff 0%,#c400ff 60%,transparent 75%)";
+            "radial-gradient(circle,#fff 0%,#ffcc00 50%,transparent 75%)";
         }
-        updateChain(0.5);
-        ctx.beginPath();
-        ctx.moveTo(points[0].x, points[0].y);
-        for (let i = 1; i < points.length - 1; i++) {
-          const midX = (points[i].x + points[i + 1].x) / 2;
-          const midY = (points[i].y + points[i + 1].y) / 2;
-          ctx.quadraticCurveTo(points[i].x, points[i].y, midX, midY);
-        }
-        const grad = ctx.createLinearGradient(
-          points[0].x,
-          points[0].y,
-          points[points.length - 1].x,
-          points[points.length - 1].y
-        );
-        grad.addColorStop(0, "rgba(255,255,255,0.9)");
-        grad.addColorStop(0.4, "rgba(196,0,255,0.7)");
-        grad.addColorStop(1, "rgba(196,0,255,0)");
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 6;
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = "rgba(196,0,255,0.6)";
-        ctx.stroke();
-      }
-
-      if (currentMode === "starfall") {
-        if (head) {
-          head.style.background =
-            "radial-gradient(circle,#fff 0%,#ffea00 50%,transparent 75%)";
-        }
-        const speed = Math.hypot(mouseX - lastX, mouseY - lastY);
-        if (speed > 3) {
-          const count = speed > 20 ? 3 : 1;
-          for (let i = 0; i < count; i++) {
-            starsRef.current.push({
-              x: mouseX,
-              y: mouseY,
-              vx: -(mouseX - lastX) * 0.15 + (Math.random() - 0.5) * 1.5,
-              vy: -(mouseY - lastY) * 0.15 + (Math.random() - 0.5) * 1.5,
-              life: 1,
-              size: Math.random() * 2 + 1,
-            });
-          }
-        }
-        starsRef.current.forEach((s) => {
-          s.x += s.vx;
-          s.y += s.vy;
-          s.life -= 0.02;
-        });
-        starsRef.current = starsRef.current.filter((s) => s.life > 0);
-        starsRef.current.forEach((s) => {
+        updateChain(0.4);
+        for (let i = 0; i < points.length - 1; i++) {
+          const p1 = points[i];
+          const p2 = points[i + 1];
+          const t = i / points.length;
+          const width = Math.max(0.5, 9 * (1 - t));
+          const alpha = Math.max(0, 1 - t * 1.1);
+          const hue = 50 - t * 50;
           ctx.beginPath();
-          ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-          ctx.fillStyle = `hsla(50,100%,70%,${s.life})`;
-          ctx.shadowBlur = 8;
-          ctx.shadowColor = `hsla(50,100%,60%,${s.life})`;
-          ctx.fill();
-        });
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `hsla(${hue},100%,55%,${alpha})`;
+          ctx.lineWidth = width;
+          ctx.lineCap = "round";
+          ctx.shadowBlur = 16;
+          ctx.shadowColor = `hsla(${hue},100%,50%,${alpha})`;
+          ctx.stroke();
+        }
       }
 
       lastPos.current = { x: mouseX, y: mouseY };
@@ -273,7 +194,6 @@ export default function CustomCursor() {
     setMode(newMode);
     modeRef.current = newMode;
     dotsRef.current = [];
-    starsRef.current = [];
     if (typeof window !== "undefined") {
       localStorage.setItem("comet_cursor_mode", newMode);
     }
