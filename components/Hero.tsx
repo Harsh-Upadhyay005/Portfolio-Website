@@ -181,31 +181,24 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* Call To Action Buttons (Framer Motion) */}
+        {/* Resume action */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6, type: "spring" }}
-          className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 w-full sm:w-auto max-w-md sm:max-w-none"
+          className="flex items-center justify-center mb-12 sm:mb-16 w-full sm:w-auto"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={scrollToAbout}
-            className="group relative flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-2xl font-bold shadow-xl shadow-zinc-900/20 dark:shadow-zinc-100/10 overflow-hidden"
-          >
-            <span className="relative z-10">Explore My Work</span>
-            <Zap className="relative z-10 w-4 h-4 group-hover:text-orange-400 dark:group-hover:text-orange-600 transition-colors" />
-            <div className="absolute inset-0 bg-gradient-to-r from-zinc-800 to-zinc-950 dark:from-zinc-200 dark:to-white opacity-0 group-hover:opacity-100 transition-opacity" />
-          </motion.button>
-          
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="#contact"
-            className="w-full sm:w-auto px-8 py-4 bg-black/5 dark:bg-zinc-900/40 backdrop-blur-xl border border-black/10 dark:border-white/10 text-zinc-800 dark:text-zinc-200 rounded-2xl font-bold hover:border-orange-500 hover:text-orange-500 dark:hover:border-orange-500 dark:hover:text-orange-400 transition-colors shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.1)] text-center"
+            href="/Resume-final(2)%20(1).pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 rounded-2xl font-bold shadow-xl shadow-zinc-900/20 dark:shadow-zinc-100/10 overflow-hidden"
           >
-            Get In Touch
+            <span className="relative z-10">View / Download Resume</span>
+            <Zap className="relative z-10 w-4 h-4 group-hover:text-orange-400 dark:group-hover:text-orange-600 transition-colors" />
+            <div className="absolute inset-0 bg-gradient-to-r from-zinc-800 to-zinc-950 dark:from-zinc-200 dark:to-white opacity-0 group-hover:opacity-100 transition-opacity" />
           </motion.a>
         </motion.div>
 
