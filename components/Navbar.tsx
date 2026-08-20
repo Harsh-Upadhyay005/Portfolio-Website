@@ -15,7 +15,7 @@ export default function Navbar() {
       setScrolled(window.scrollY > 50);
 
       // Detect active section
-      const sections = ["about", "skills", "education", "hackathons", "resume", "projects", "contact"];
+      const sections = ["about", "skills", "education", "hackathons", "projects", "contact"];
       let current = "";
       for (const id of sections) {
         const el = document.getElementById(id);
@@ -45,7 +45,6 @@ export default function Navbar() {
     { name: "Skills", id: "skills" },
     { name: "Education", id: "education" },
     { name: "Hackathons", id: "hackathons" },
-    { name: "Resume", id: "resume" },
     { name: "Projects", id: "projects" },
   ];
 
