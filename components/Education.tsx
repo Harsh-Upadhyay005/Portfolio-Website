@@ -49,7 +49,7 @@ export default function Education() {
       provider: "Apna College", 
       icon: Code,
       iconColor: "#10B981",
-      certUrl: "",
+      certUrl: "certificates/web-development.pdf",
       issueDate: "2026"
     },
     { 
