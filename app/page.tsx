@@ -1,46 +1,28 @@
-import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import IntroLoader from "@/components/IntroLoader";
+import About from "@/components/About";
+import Skills from "@/components/Skills";
+import Education from "@/components/Education";
+import Hackathons from "@/components/Hackathons";
+import Projects from "@/components/Projects";
+import Signature from "@/components/Signature";
+import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
-import { Suspense } from "react";
-
-// Lazy load components below the fold
-const About = dynamic(() => import("@/components/About"), {
-  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div></div>
-});
-const Skills = dynamic(() => import("@/components/Skills"), {
-  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div></div>
-});
-const Education = dynamic(() => import("@/components/Education"), {
-  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div></div>
-});
-const Hackathons = dynamic(() => import("@/components/Hackathons"), {
-  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div></div>
-});
-const Projects = dynamic(() => import("@/components/Projects"), {
-  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div></div>
-});
-const Signature = dynamic(() => import("@/components/Signature"), {
-  loading: () => <div className="py-20 flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div></div>
-});
-const Footer = dynamic(() => import("@/components/Footer"), {
-  loading: () => <div className="py-8"></div>
-});
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-zinc-900 transition-colors">
+      <IntroLoader />
       <Navbar />
       <Hero />
-      <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div></div>}>
-        <About />
-        <Skills />
-        <Education />
-        <Hackathons />
-        <Projects />
-        <Signature />
-        <Footer />
-      </Suspense>
+      <About />
+      <Skills />
+      <Education />
+      <Hackathons />
+      <Projects />
+      <Signature />
+      <Footer />
       <Analytics />
     </main>
   );
