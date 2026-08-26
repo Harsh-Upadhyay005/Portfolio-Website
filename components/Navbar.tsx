@@ -68,31 +68,31 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-3 group cursor-pointer"
+            aria-label="Scroll to top"
           >
             <motion.div
-              className="relative"
-              animate={{ y: [0, -3, 0] }}
+              className="relative flex items-center justify-center"
+              animate={{ y: [0, -2, 0] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-orange-400 via-yellow-400 to-amber-400 rounded-lg blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"
+                className="absolute inset-0 bg-gradient-to-r from-orange-500/30 via-amber-500/30 to-yellow-500/30 rounded-full blur-lg opacity-0 group-hover:opacity-80 transition-opacity duration-500"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.img
-                src="/logo.png"
-                alt="RH Logo"
-                className="relative w-12 h-12 sm:w-14 sm:h-14 object-contain filter brightness-110 contrast-110"
+                src="/logo.svg"
+                alt="Harsh Logo"
+                className="relative w-10 h-10 sm:w-12 sm:h-12 object-contain filter drop-shadow-sm dark:drop-shadow-[0_0_12px_rgba(255,255,255,0.2)]"
                 whileHover={{ 
-                  scale: 1.1,
-                  filter: "brightness(1.3) drop-shadow(0 0 20px rgba(251, 191, 36, 0.6))",
-                  transition: { duration: 0.3 }
+                  scale: 1.12,
+                  filter: "drop-shadow(0 0 16px rgba(249, 115, 22, 0.5))",
+                  transition: { duration: 0.25 }
                 }}
-                style={{ filter: "drop-shadow(0 4px 12px rgba(251, 191, 36, 0.3))" }}
+                whileTap={{ scale: 0.95 }}
               />
             </motion.div>
-            
           </button>
 
           {/* Desktop Navigation */}
